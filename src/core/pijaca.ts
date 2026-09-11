@@ -2,6 +2,7 @@
  * Pijaca: cene koje osciliraju sa apsolutnim vremenom (prototip L585–590) i prodaja (L1020–1028).
  */
 import {
+  NOVCICA_MAX,
   PIJACA_MIN_CENA,
   PIJACA_PRAG_DOLE,
   PIJACA_PRAG_GORE,
@@ -12,9 +13,6 @@ import {
 } from '../config'
 import { ODBIJENO, type Igra, type Rezultat } from './dogadjaji'
 import type { Stanje } from './types'
-
-/** Najviše novčića koji lete ka novčaniku po akciji (prototip `Math.min(broj, 6)`). */
-export const NOVCICA_MAX = 6
 
 export type Smer = -1 | 0 | 1
 

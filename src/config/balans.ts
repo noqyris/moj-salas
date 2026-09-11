@@ -10,9 +10,9 @@ export const POCETNE_PARCELE = 2
 
 // ── Parcele ──────────────────────────────────────────────────────────────────
 export const MAX_PARCELA = 9
-const PARCELA_CENA_BAZA = 150
-const PARCELA_CENA_RAST = 2.2
-const PARCELA_CENA_ZAOKRUZI = 10
+export const PARCELA_CENA_BAZA = 150
+export const PARCELA_CENA_RAST = 2.2
+export const PARCELA_CENA_ZAOKRUZI = 10
 
 /** Cena sledeće parcele kad igrač trenutno ima `n` parcela: n=2 → 150, 3 → 330 … 8 → 17 010. */
 export function cenaParcele(n: number): number {
@@ -30,10 +30,10 @@ export const FAZA_3_OD = 0.8
 export const ZALIVANJE_UDEO = 0.25
 
 // ── XP i nivoi ───────────────────────────────────────────────────────────────
-const XP_BAZA = 30
-const XP_RAST = 1.9
+export const XP_BAZA = 30
+export const XP_RAST = 1.9
 export const MAX_NIVO = 20
-const NIVO_BONUS_PO_NIVOU = 40
+export const NIVO_BONUS_PO_NIVOU = 40
 /** Nivo na kome level-up kartica najavljuje aukciju („Aukcija uskoro"). */
 export const AUKCIJA_NIVO = 6
 
@@ -71,16 +71,18 @@ export const NARUDZBINA_AKTIVNIH = 2
 export const NARUDZBINA_MAX_VREME_KULTURE = 1800
 /** Verovatnoća da narudžbina traži jednu vrstu robe (inače dve, ako ih pool ima bar dve). */
 export const NARUDZBINA_JEDNA_VRSTA = 0.55
+/** Najviše različitih artikala u jednoj narudžbini. */
+export const NARUDZBINA_MAX_VRSTA = 2
 export const NARUDZBINA_KOM_MIN = 1
 export const NARUDZBINA_KOM_MAX = 12
-const NARUDZBINA_BAZA = 55
-const NARUDZBINA_EKSPONENT = 1.25
-const NARUDZBINA_RASPON_MIN = 0.75
-const NARUDZBINA_RASPON = 0.55
-const NARUDZBINA_NAGRADA_MNOZILAC = 1.3
-const NARUDZBINA_NAGRADA_KORAK = 5
-const NARUDZBINA_XP_DELILAC = 10
-const NARUDZBINA_XP_MIN = 3
+export const NARUDZBINA_BAZA = 55
+export const NARUDZBINA_EKSPONENT = 1.25
+export const NARUDZBINA_RASPON_MIN = 0.75
+export const NARUDZBINA_RASPON = 0.55
+export const NARUDZBINA_NAGRADA_MNOZILAC = 1.3
+export const NARUDZBINA_NAGRADA_KORAK = 5
+export const NARUDZBINA_XP_DELILAC = 10
+export const NARUDZBINA_XP_MIN = 3
 
 /** Ciljna tržišna vrednost narudžbine; `r` je jedan poziv rng-a iz [0, 1). */
 export function ciljNarudzbine(lvl: number, r: number): number {
@@ -105,8 +107,8 @@ export function nagradaXp(vrednost: number): number {
 }
 
 // ── Dnevni poklon ────────────────────────────────────────────────────────────
-const POKLON_BAZA = 40
-const POKLON_PO_NIVOU = 35
+export const POKLON_BAZA = 40
+export const POKLON_PO_NIVOU = 35
 
 export function dnevniPoklon(lvl: number): number {
   return POKLON_BAZA + lvl * POKLON_PO_NIVOU

@@ -5,14 +5,12 @@
  * su besmislene (pravougaonici su nule) — testabilni su broj, klase, stilovi i vremena.
  */
 import { ART } from '../art'
-import { NOVAC_ZVUK_ODLAGANJE_MS } from '../config'
+import { NOVAC_ZVUK_ODLAGANJE_MS, NOVCICA_MAX } from '../config'
 import type { ZvukId } from '../core/dogadjaji'
 import { t } from '../i18n'
 import type { Timers } from '../platform/tipovi'
 import { $ } from './dom'
 
-/** Najviše novčića po jednom letu (prodaja 10 komada = 6 novčića). */
-export const NOVCICI_MAX = 6
 /** Novčić i nestaje posle NOVCIC_TRAJE_MS + i · NOVCIC_RAZMAK_MS. */
 export const NOVCIC_TRAJE_MS = 700
 export const NOVCIC_RAZMAK_MS = 40
@@ -49,7 +47,8 @@ export function napraviFx({ doc, tajmeri, fxRandom, zvuk }: FxZavisnosti): Fx {
     letiNovcic(izEl, broj) {
       const cilj = $(doc, '#novacPilula').getBoundingClientRect()
       const iz = (izEl ?? doc.body).getBoundingClientRect()
-      for (let i = 0; i < Math.min(broj, NOVCICI_MAX); i++) {
+      // Kao prototip (L624): i pozivalac (core) i sam let klešte broj na NOVCICA_MAX.
+      for (let i = 0; i < Math.min(broj, NOVCICA_MAX); i++) {
         const c = doc.createElement('div')
         c.className = 'letac'
         c.innerHTML = ART.novcic

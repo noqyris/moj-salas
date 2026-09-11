@@ -7,12 +7,10 @@
  *      mrtav kod (z.t + n·I ≤ now po konstrukciji) i izostavljena je.
  * D4 — sat vraćen unazad: broj spremnih je u [0, kap]; `pokupi` odbija kad nema ničega.
  */
-import { ZIV, type ZivotinjaId } from '../config'
+import { VIBRACIJA, ZIV, type ZivotinjaId } from '../config'
 import { ODBIJENO, type Igra, type Rezultat } from './dogadjaji'
 import type { Stanje } from './types'
 import { dodajXp } from './xp'
-
-const VIBRACIJA_POKUPI = 14
 
 /** Broj spremnih proizvoda, u [0, kap]; 0 za nekupljenu životinju. */
 export function zivSpremno(s: Stanje, id: ZivotinjaId, now: number): number {
@@ -37,7 +35,7 @@ export function pokupi(g: Igra, id: ZivotinjaId, now: number): Rezultat {
     ok: true,
     dogadjaji: [
       { tip: 'zvuk', id: 'zetva' },
-      { tip: 'vibracija', obrazac: VIBRACIJA_POKUPI },
+      { tip: 'vibracija', obrazac: VIBRACIJA.pokupi },
       ...dodajXp(g, n * Z.xpPo, { vrsta: 'zivotinja', id }),
       { tip: 'poruka', poruka: { id: 'pokupljeno', n, zivotinja: id } },
     ],

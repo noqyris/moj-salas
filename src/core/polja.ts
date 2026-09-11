@@ -9,21 +9,16 @@ import {
   KULTURE,
   MAX_PARCELA,
   SAVET_ZALIVANJE_ODLAGANJE_MS,
+  VIBRACIJA,
   ZALIVANJE_UDEO,
   cenaParcele,
   type KulturaId,
 } from '../config'
 import { ODBIJENO, type Dogadjaj, type Igra, type Rezultat } from './dogadjaji'
-import { VIBRACIJA_KUPOVINA, proveriKupovinu } from './radnja'
+import { proveriKupovinu } from './radnja'
 import { praznaParcela } from './stanje'
 import type { Parcela, Stanje } from './types'
 import { dodajXp, nivoIzXp } from './xp'
-
-// Obrasci vibracije iz prototipa (ms).
-const VIBRACIJA_SADNJA = 12
-const VIBRACIJA_ZALIVANJE = 10
-const VIBRACIJA_ZETVA = 18
-const VIBRACIJA_UBERI_SVE: readonly number[] = [15, 25, 15]
 
 export type Faza = 1 | 2 | 3
 
@@ -98,7 +93,7 @@ export function posadi(g: Igra, i: number, k: KulturaId, now: number): Rezultat 
   s.sadio = true
   const dogadjaji: Dogadjaj[] = [
     { tip: 'zvuk', id: 'sadnja' },
-    { tip: 'vibracija', obrazac: VIBRACIJA_SADNJA },
+    { tip: 'vibracija', obrazac: VIBRACIJA.sadnja },
   ]
   if (prvi) {
     dogadjaji.push({
@@ -136,7 +131,7 @@ export function zalij(g: Igra, i: number, now: number): Rezultat {
     ok: true,
     dogadjaji: [
       { tip: 'zvuk', id: 'voda' },
-      { tip: 'vibracija', obrazac: VIBRACIJA_ZALIVANJE },
+      { tip: 'vibracija', obrazac: VIBRACIJA.zalivanje },
       { tip: 'kapi', i },
       { tip: 'poruka', poruka: { id: 'zaliveno' } },
     ],
@@ -164,7 +159,7 @@ export function uberi(g: Igra, i: number, now: number): Rezultat {
     ok: true,
     dogadjaji: [
       { tip: 'zvuk', id: 'zetva' },
-      { tip: 'vibracija', obrazac: VIBRACIJA_ZETVA },
+      { tip: 'vibracija', obrazac: VIBRACIJA.zetva },
       ...dodajXp(g, xp, { vrsta: 'parcela', i }),
     ],
     cuvaj: 'odlozeno',
@@ -187,7 +182,7 @@ export function uberiSve(g: Igra, now: number): Rezultat {
     ok: true,
     dogadjaji: [
       { tip: 'zvuk', id: 'zetva' },
-      { tip: 'vibracija', obrazac: VIBRACIJA_UBERI_SVE },
+      { tip: 'vibracija', obrazac: VIBRACIJA.uberiSve },
       ...dodajXp(g, xp, { vrsta: 'uberiSve' }),
       { tip: 'poruka', poruka: { id: 'ubranoSve', br } },
     ],
@@ -216,7 +211,7 @@ export function kupiParcelu(g: Igra, _now: number): Rezultat {
     ok: true,
     dogadjaji: [
       { tip: 'zvuk', id: 'zetva' },
-      { tip: 'vibracija', obrazac: VIBRACIJA_KUPOVINA },
+      { tip: 'vibracija', obrazac: VIBRACIJA.kupovina },
       { tip: 'poruka', poruka: { id: 'novaParcela' } },
     ],
     cuvaj: 'odlozeno',

@@ -16,7 +16,10 @@ import {
   NARUDZBINA_KOM_MAX,
   NARUDZBINA_KOM_MIN,
   NARUDZBINA_MAX_VREME_KULTURE,
+  NARUDZBINA_MAX_VRSTA,
+  NOVCICA_MAX,
   REDOSLED,
+  VIBRACIJA,
   ZIV,
   ZIV_REDOSLED,
   baznaCena,
@@ -26,11 +29,8 @@ import {
   type ArtikalId,
 } from '../config'
 import { ODBIJENO, type Igra, type Rezultat } from './dogadjaji'
-import { NOVCICA_MAX } from './pijaca'
 import type { Narudzba, Rng, Stanje } from './types'
 import { dodajXp, nivoIzXp } from './xp'
-
-const VIBRACIJA_ISPORUKA: readonly number[] = [15, 30, 15]
 
 /** Element niza na indeksu koji je izračunat iz rng-a; rng van [0, 1) je greška pozivaoca. */
 function izvuci<T>(niz: readonly T[], i: number): T {
@@ -58,7 +58,8 @@ export function novaNarudzba(g: Igra, rng: Rng): Narudzba {
   const { lvl } = nivoIzXp(g.s.xp)
   const pool = narPool(g.s)
   // r₁ se izvlači UVEK: levi operand; `pool.length < 2` se računa samo kad je r₁ ≥ 0.55.
-  const brojVrsta = rng() < NARUDZBINA_JEDNA_VRSTA || pool.length < 2 ? 1 : 2
+  const brojVrsta =
+    rng() < NARUDZBINA_JEDNA_VRSTA || pool.length < NARUDZBINA_MAX_VRSTA ? 1 : NARUDZBINA_MAX_VRSTA
   const izbor = [...pool].sort(() => rng() - 0.5).slice(0, brojVrsta)
   const cilj = ciljNarudzbine(lvl, rng())
   const stavke = izbor.map((k) => ({
@@ -110,7 +111,7 @@ export function isporuci(g: Igra, id: number, _now: number, rng: Rng): Rezultat 
   const sidro = { vrsta: 'narudzba', id } as const
   const dogadjaji: Rezultat['dogadjaji'] = [
     { tip: 'novcici', sidro, broj: NOVCICA_MAX },
-    { tip: 'vibracija', obrazac: VIBRACIJA_ISPORUKA },
+    { tip: 'vibracija', obrazac: VIBRACIJA.isporuka },
     ...dodajXp(g, o.xp, sidro),
     { tip: 'poruka', poruka: { id: 'zahvaljuje', ime: o.ime, din: o.din } },
   ]

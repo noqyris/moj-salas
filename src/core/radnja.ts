@@ -1,13 +1,18 @@
 /*
  * Radnja: kupovina zgrada i zaštita od zaključavanja igre (prototip L660–665, L1041–1064).
  */
-import { KULTURE, MASINE, SOFTLOCK_REZERVA_KULTURA, ZIV, jeMasina, type ZgradaId } from '../config'
+import {
+  KULTURE,
+  MASINE,
+  SOFTLOCK_REZERVA_KULTURA,
+  VIBRACIJA,
+  ZIV,
+  jeMasina,
+  type ZgradaId,
+} from '../config'
 import { ODBIJENO, type Igra, type Rezultat } from './dogadjaji'
 import type { Stanje } from './types'
 import { nivoIzXp } from './xp'
-
-/** Vibracija posle kupovine parcele ili zgrade (prototip `vibro(20)`). */
-export const VIBRACIJA_KUPOVINA = 20
 
 /** „Nešto proizvodi": usev na parceli (i zreo), mašina koja radi, ili BILO KOJA kupljena životinja. */
 export function nestoRaste(s: Stanje): boolean {
@@ -85,7 +90,7 @@ export function kupiZgradu(g: Igra, id: ZgradaId, now: number): Rezultat {
     ok: true,
     dogadjaji: [
       { tip: 'zvuk', id: 'zetva' },
-      { tip: 'vibracija', obrazac: VIBRACIJA_KUPOVINA },
+      { tip: 'vibracija', obrazac: VIBRACIJA.kupovina },
       { tip: 'poruka', poruka: { id: 'zgradaNaFarmi', zgrada: id } },
     ],
     cuvaj: 'odlozeno',
