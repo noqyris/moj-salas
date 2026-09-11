@@ -17,6 +17,8 @@ export default defineConfig({
   test: {
     include: ['tests/**/*.test.ts'],
     environment: 'node',
+    // Dnevni poklon zavisi od lokalnog kalendarskog dana — testovi rade u fiksnoj zoni.
+    env: { TZ: 'Europe/Belgrade' },
     coverage: {
       provider: 'v8',
       include: ['src/core/**/*.ts'],
