@@ -5,3 +5,6 @@ package-lock.json
 moja-farma-v3.html
 referenca-sim.jsdom.js
 CLAUDE.md
+# CSS je doslovna kopija prototipa (test poredi bajt za bajt); fixture fajlovi su generisani
+src/ui/styles.css
+tests/fixtures

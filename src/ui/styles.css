@@ -1,0 +1,248 @@
+  :root{
+    --nebo1:#a8dcef; --nebo2:#dff3e0;
+    --trava:#8fc750; --trava-t:#6ba83a;
+    --zemlja:#9c6a3e; --zemlja-t:#8b5a33; --zemlja-ivica:#6e4222;
+    --drvo:#a9713f; --drvo-t:#7c4e26; --drvo-s:#b8804c;
+    --papir:#fff6e3; --papir-t:#f4e6c8;
+    --mastilo:#4a2f16; --mastilo-b:#8a6a45;
+    --zlato:#ffc53d; --zlato-t:#d89a17;
+    --zeleno:#5faf3a; --zeleno-t:#468428;
+    --crveno:#e8542f; --crveno-t:#c23a1a;
+    --voda:#4aa8d8; --xp:#8a63d2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:'Baloo 2',system-ui,sans-serif;color:var(--mastilo);background:var(--trava);
+    overscroll-behavior-y:none;user-select:none;-webkit-user-select:none}
+  #app{max-width:480px;margin:0 auto;min-height:100%;position:relative;padding-bottom:96px}
+
+  /* ============ SCENA ============ */
+  #scena{position:relative;height:168px;overflow:hidden;background:linear-gradient(var(--nebo1),var(--nebo2) 78%)}
+  .sunce{position:absolute;top:16px;left:22px;width:52px;height:52px;border-radius:50%;
+    background:radial-gradient(circle at 38% 34%,#fff2b8,#ffe066 55%,#ffd23f);
+    box-shadow:0 0 34px 14px rgba(255,224,102,.55);animation:sija 5s ease-in-out infinite}
+  @keyframes sija{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  .oblak{position:absolute;background:#fff;border-radius:99px;opacity:.92;animation:plovi linear infinite}
+  .oblak::before,.oblak::after{content:'';position:absolute;background:#fff;border-radius:50%}
+  .oblak.o1{top:24px;width:64px;height:20px;animation-duration:75s}
+  .oblak.o1::before{width:28px;height:28px;top:-14px;left:10px}
+  .oblak.o1::after{width:20px;height:20px;top:-9px;left:32px}
+  .oblak.o2{top:58px;width:46px;height:15px;animation-duration:95s;animation-delay:-40s;opacity:.75}
+  .oblak.o2::before{width:20px;height:20px;top:-10px;left:8px}
+  .oblak.o2::after{width:14px;height:14px;top:-6px;left:24px}
+  @keyframes plovi{from{transform:translateX(-90px)}to{transform:translateX(500px)}}
+  .brdo{position:absolute;border-radius:50%}
+  .brdo.zadnje{width:150%;height:190px;left:-42%;bottom:-118px;background:#a5d468}
+  .brdo.prednje{width:170%;height:210px;left:-12%;bottom:-138px;background:var(--trava)}
+  #scena .ukras{position:absolute;bottom:6px}
+  #scena .ambar{right:14px;width:104px}
+  #scena .drvo1{right:118px;width:44px;bottom:12px}
+  #scena .drvo2{left:12px;width:36px;bottom:2px}
+  .scenaKoka{position:absolute;right:96px;bottom:2px;width:32px;display:none;animation:kljuca 2.6s ease-in-out infinite;transform-origin:bottom center}
+  @keyframes kljuca{0%,100%{transform:rotate(0)}12%{transform:rotate(9deg) translateY(1px)}24%{transform:rotate(0)}60%{transform:translateX(3px)}}
+  .scenaKrava{position:absolute;left:58px;bottom:0;width:56px;display:none;animation:pase 5s ease-in-out infinite;transform-origin:bottom center}
+  @keyframes pase{0%,100%{transform:rotate(0)}30%{transform:rotate(3.5deg)}55%{transform:rotate(0)}}
+  .leptir{position:absolute;width:26px;z-index:3;animation:leti 17s ease-in-out infinite alternate;top:72px;left:-28px}
+  .leptir.l2{top:40px;width:20px;animation-duration:23s;animation-delay:-9s}
+  @keyframes leti{0%{transform:translate(0,0) rotate(8deg)}25%{transform:translate(95px,-16px) rotate(-9deg)}
+    50%{transform:translate(190px,8px) rotate(8deg)}75%{transform:translate(275px,-12px) rotate(-7deg)}
+    100%{transform:translate(360px,2px) rotate(5deg)}}
+  .leptir .krL,.leptir .krD{transform-box:fill-box;animation:mah .4s ease-in-out infinite alternate}
+  .leptir .krL{transform-origin:right center}
+  .leptir .krD{transform-origin:left center}
+  @keyframes mah{to{transform:scaleX(.5)}}
+  .krila{transform-box:fill-box;transform-origin:center;animation:vrti 8s linear infinite}
+  @keyframes vrti{to{transform:rotate(360deg)}}
+
+  /* HUD */
+  #hud{position:absolute;top:10px;left:0;right:0;padding:0 12px;display:flex;justify-content:space-between;align-items:flex-start;z-index:5}
+  .tabla{background:linear-gradient(var(--drvo-s),var(--drvo));border:3px solid var(--drvo-t);border-radius:12px;
+    padding:6px 14px;color:#fff3dc;font-weight:800;font-size:18px;line-height:1.05;
+    box-shadow:0 3px 0 var(--drvo-t),0 5px 10px rgba(0,0,0,.25);position:relative}
+  .tabla small{display:block;font-size:9.5px;font-weight:600;letter-spacing:1.6px;opacity:.8;text-transform:uppercase}
+  .tabla::before,.tabla::after{content:'';position:absolute;top:5px;width:5px;height:5px;border-radius:50%;background:#5c3a1c;box-shadow:inset 0 1px 1px rgba(0,0,0,.6)}
+  .tabla::before{left:6px}.tabla::after{right:6px}
+  #hudDesno{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+  .pilula{display:flex;align-items:center;gap:6px;background:var(--papir);border:2.5px solid var(--drvo-s);
+    border-radius:999px;padding:5px 12px 5px 8px;font-weight:800;font-size:16px;box-shadow:0 2px 0 var(--drvo-t)}
+  .pilula svg{width:19px;height:19px;flex:none}
+  .nivo{display:flex;align-items:center;gap:7px;background:var(--papir);border:2.5px solid var(--drvo-s);
+    border-radius:999px;padding:4px 11px;font-weight:800;font-size:12.5px;box-shadow:0 2px 0 var(--drvo-t)}
+  .nivo .xpTraka{width:56px;height:7px;border-radius:99px;background:#e5d6b4;overflow:hidden}
+  .nivo .xpTraka i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#a689e0,var(--xp));border-radius:99px;transition:width .4s}
+
+  /* ============ SADRŽAJ ============ */
+  main{padding:14px 14px 8px;position:relative}
+  .tab{display:none}
+  .tab.aktivan{display:block;animation:ud .16s ease-out}
+  @keyframes ud{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2{font-size:14px;font-weight:800;color:#3d6b1e;letter-spacing:1.4px;text-transform:uppercase;margin:4px 2px 10px;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+
+  #uberiSveKuca{display:flex;justify-content:center;margin-bottom:10px;min-height:0}
+  #uberiSveKuca button{font-family:inherit;font-weight:800;font-size:13.5px;border:none;cursor:pointer;
+    color:#5a3c00;background:linear-gradient(#ffd76a,var(--zlato));border-radius:999px;padding:8px 18px;
+    box-shadow:0 3px 0 var(--zlato-t),0 5px 10px rgba(0,0,0,.2);animation:skoci 1.3s ease-in-out infinite}
+  #uberiSveKuca button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--zlato-t)}
+
+  .njive{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .parcela{position:relative;aspect-ratio:1/1.06;border-radius:14px;cursor:pointer;
+    background:linear-gradient(var(--zemlja),var(--zemlja-t) 70%);border:3px solid var(--zemlja-ivica);
+    box-shadow:inset 0 3px 6px rgba(255,255,255,.18),inset 0 -4px 8px rgba(0,0,0,.22),0 4px 8px rgba(0,0,0,.18);
+    overflow:visible;transition:transform .08s}
+  .parcela::before{content:'';position:absolute;inset:6px;border-radius:9px;
+    background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(0,0,0,.11) 9px 12px);pointer-events:none}
+  .parcela:active{transform:scale(.96)}
+  .parcela .biljka{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);width:76%;pointer-events:none;
+    filter:drop-shadow(0 4px 3px rgba(0,0,0,.28));transition:transform .3s}
+  .parcela .senkica{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);width:55%;height:9%;
+    background:radial-gradient(ellipse,rgba(0,0,0,.28),transparent 70%);border-radius:50%;pointer-events:none}
+  .parcela .info{position:absolute;left:8%;right:8%;bottom:6px;pointer-events:none}
+  .parcela .cd{font-size:10.5px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);text-align:center;font-variant-numeric:tabular-nums}
+  .parcela .traka{height:6px;border-radius:99px;background:rgba(0,0,0,.38);overflow:hidden;margin-top:2px}
+  .parcela .traka i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8ed063,var(--zeleno));transition:width .9s linear}
+  .parcela .zalij{position:absolute;top:5px;right:5px;width:19px;z-index:2;pointer-events:none;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));animation:skoci 1.7s ease-in-out infinite}
+  .parcela.prazna .plus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:800;color:rgba(255,246,227,.55)}
+  .parcela.zrelo{border-color:var(--zlato)}
+  .parcela.zrelo .biljka{animation:njise 1.4s ease-in-out infinite}
+  @keyframes njise{0%,100%{transform:translateX(-50%) rotate(-2.5deg)}50%{transform:translateX(-50%) rotate(2.5deg)}}
+  .parcela .uberi{position:absolute;top:-9px;left:50%;transform:translateX(-50%);z-index:3;
+    background:linear-gradient(#ffd76a,var(--zlato));border:2px solid var(--zlato-t);color:#5a3c00;
+    font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;box-shadow:0 2px 5px rgba(0,0,0,.3);
+    animation:skoci 1.1s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+  @keyframes skoci{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-4px)}}
+  #uberiSveKuca button{animation-name:skoci2}
+  @keyframes skoci2{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .parcela.zakljucana{background:linear-gradient(#9ccf60,#84b94a);border-color:#5f8f33}
+  .parcela.zakljucana::before{display:none}
+  .parcela.zakljucana .sadrzajz{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+  .parcela.zakljucana .znak{background:linear-gradient(var(--drvo-s),var(--drvo));border:2px solid var(--drvo-t);
+    border-radius:8px;color:#fff3dc;font-size:11px;font-weight:800;padding:3px 8px;box-shadow:0 2px 0 var(--drvo-t)}
+  .parcela.zakljucana .katanac{font-size:18px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+  .hint{position:absolute;z-index:6;top:-34px;left:4px;background:var(--papir);border:2.5px solid var(--drvo-s);
+    border-radius:11px;padding:5px 11px;font-size:12.5px;font-weight:800;box-shadow:0 3px 8px rgba(0,0,0,.25);
+    animation:skoci2 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+  .hint::after{content:'';position:absolute;bottom:-7px;left:22px;border:7px solid transparent;border-top-color:var(--drvo-s);border-bottom:none}
+  .kapFx{position:absolute;width:12px;z-index:4;pointer-events:none;animation:kapne .55s ease-in forwards}
+  @keyframes kapne{from{transform:translateY(-6px);opacity:1}to{transform:translateY(24px);opacity:0}}
+
+  /* kartice */
+  .kartica{background:var(--papir);border:3px solid var(--drvo-s);border-radius:16px;padding:13px;
+    box-shadow:0 3px 0 var(--drvo-t),0 6px 12px rgba(0,0,0,.16);margin-top:12px}
+  .kartica .red{display:flex;align-items:center;gap:12px}
+  .kartica .slika{width:58px;flex:none}
+  .kartica h3{font-size:16px;font-weight:800}
+  .kartica p{font-size:12.5px;color:var(--mastilo-b);line-height:1.35;font-weight:600}
+  .kartica.siva{filter:saturate(.35);opacity:.85}
+  .traka2{height:8px;border-radius:99px;background:#e5d6b4;overflow:hidden;margin-top:10px}
+  .traka2 i{display:block;height:100%;width:0;background:linear-gradient(90deg,#f0854e,var(--crveno));transition:width .9s linear}
+  .traka2.plava i{background:linear-gradient(90deg,#7cc4e8,var(--voda))}
+
+  .dugme{font-family:inherit;font-weight:800;font-size:15px;border:none;border-radius:13px;cursor:pointer;
+    padding:11px 16px;width:100%;margin-top:11px;color:#2c4a12;
+    background:linear-gradient(#a4d876,#7cbf4a);box-shadow:0 4px 0 var(--zeleno-t),0 6px 10px rgba(0,0,0,.18);
+    transition:transform .07s,box-shadow .07s,filter .15s}
+  .dugme:active{transform:translateY(3px);box-shadow:0 1px 0 var(--zeleno-t)}
+  .dugme:disabled{filter:grayscale(.75) brightness(.85);cursor:default}
+  .dugme.zlatno{color:#5a3c00;background:linear-gradient(#ffd76a,var(--zlato));box-shadow:0 4px 0 var(--zlato-t),0 6px 10px rgba(0,0,0,.18)}
+  .dugme.zlatno:active{box-shadow:0 1px 0 var(--zlato-t)}
+  .dugme.toplo{color:#fff2ea;background:linear-gradient(#f0854e,var(--crveno));box-shadow:0 4px 0 var(--crveno-t),0 6px 10px rgba(0,0,0,.18)}
+  .dugme.toplo:active{box-shadow:0 1px 0 var(--crveno-t)}
+  .dugme.tiho{color:var(--mastilo-b);background:var(--papir-t);box-shadow:0 3px 0 #d3bd93;font-size:13.5px;font-weight:700}
+
+  .roba{display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:2px dashed #e3d2ab}
+  .roba:last-child{border-bottom:none}
+  .roba .slicica{width:40px;flex:none}
+  .roba .info{flex:1;min-width:0}
+  .roba .info b{font-size:15px}
+  .roba .info span{display:block;font-size:11.5px;color:var(--mastilo-b);font-weight:700;font-variant-numeric:tabular-nums}
+  .roba .cena{text-align:right;font-variant-numeric:tabular-nums;line-height:1.15}
+  .roba .cena b{font-size:15px}
+  .roba .smer{font-size:10.5px;font-weight:800;display:block}
+  .smer.gore{color:var(--zeleno-t)}.smer.dole{color:var(--crveno)}
+  .roba .prodaj{font-family:inherit;font-weight:800;font-size:12.5px;border:none;cursor:pointer;border-radius:10px;
+    padding:9px 11px;color:#5a3c00;background:linear-gradient(#ffd76a,var(--zlato));box-shadow:0 3px 0 var(--zlato-t)}
+  .roba .prodaj:active{transform:translateY(2px);box-shadow:0 1px 0 var(--zlato-t)}
+
+  .musterija{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:22px;border:2.5px solid var(--drvo-s);flex:none;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+  .musterija b{font-size:15px;display:block}
+  .musterija span{font-size:11.5px;color:var(--mastilo-b);font-weight:700;font-style:italic}
+  .stavke{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px}
+  .stavka{display:flex;align-items:center;gap:5px;background:var(--papir-t);border:2px solid #e0cda1;
+    border-radius:10px;padding:4px 8px;font-weight:800;font-size:13px}
+  .stavka .slicica{width:24px}
+  .stavka.fali{border-color:var(--crveno);color:var(--crveno)}
+  .nagrada{display:flex;gap:12px;align-items:center;margin-top:7px;font-weight:800;font-size:14px}
+  .nagrada .xpp{color:var(--xp);font-size:13px}
+  .nagrada svg{width:17px;height:17px;vertical-align:-3px}
+  .odbij{background:none;border:none;font-family:inherit;color:var(--mastilo-b);font-weight:700;font-size:12px;
+    text-decoration:underline;cursor:pointer;padding:6px 2px 0}
+  .statRed{display:flex;justify-content:space-between;font-weight:800;font-size:14px;padding:7px 2px;border-bottom:2px dashed #e3d2ab}
+  .statRed:last-child{border-bottom:none}
+  .statRed span{color:var(--mastilo-b);font-weight:700}
+
+  nav{position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;justify-content:center;
+    padding:9px 12px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(var(--drvo-s),var(--drvo));border-top:3px solid var(--drvo-t);
+    box-shadow:0 -4px 12px rgba(0,0,0,.2)}
+  nav .unutra{display:flex;gap:7px;width:100%;max-width:452px;margin:0 auto}
+  nav button{flex:1;font-family:inherit;font-weight:800;font-size:11px;border:2.5px solid transparent;border-radius:13px;
+    padding:6px 2px 5px;background:transparent;color:#f3e2c2;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+  nav button .ikona{width:21px;height:21px;display:block}
+  nav button .ikona svg{width:100%;height:100%;display:block}
+  nav button.aktivan{background:var(--papir);color:var(--mastilo);border-color:var(--drvo-t);box-shadow:0 2px 0 var(--drvo-t)}
+  nav button .tacka{position:absolute;top:2px;right:16%;width:10px;height:10px;border-radius:50%;
+    background:var(--crveno);border:2px solid #fff3dc;display:none}
+  nav button .tacka.ima{display:block}
+
+  #veo{position:fixed;inset:0;z-index:40;background:rgba(40,25,10,.5);opacity:0;pointer-events:none;transition:opacity .18s}
+  #veo.otvoren{opacity:1;pointer-events:auto}
+  #list{position:fixed;left:0;right:0;bottom:0;z-index:41;max-width:480px;margin:0 auto;
+    background:var(--papir);border:3px solid var(--drvo-s);border-bottom:none;border-radius:22px 22px 0 0;
+    padding:15px 15px calc(16px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .22s ease;
+    max-height:78vh;overflow-y:auto}
+  #list.otvoren{transform:none}
+  #list h3{font-size:17px;font-weight:800;margin-bottom:4px}
+  .seme{width:100%;display:flex;align-items:center;gap:11px;text-align:left;font-family:inherit;cursor:pointer;
+    border:2.5px solid #e0cda1;background:#fffcf3;border-radius:14px;padding:9px 11px;margin-top:8px;color:var(--mastilo)}
+  .seme:active{background:var(--papir-t)}
+  .seme:disabled{opacity:.5}
+  .seme .slicica{width:44px;flex:none}
+  .seme .info{flex:1}
+  .seme .info b{font-size:15px}
+  .seme .info span{display:block;font-size:11.5px;color:var(--mastilo-b);font-weight:700}
+  .seme .kosta{font-weight:800;font-size:15px;white-space:nowrap;text-align:right;line-height:1.15}
+  .seme .kosta small{display:block;font-size:10.5px;color:var(--xp);font-weight:800}
+  .seme.zakljucano .kosta{color:var(--mastilo-b)}
+
+  #toast{position:fixed;left:50%;bottom:100px;transform:translate(-50%,14px);z-index:60;background:var(--papir);
+    border:3px solid var(--drvo-s);color:var(--mastilo);padding:10px 18px;border-radius:14px;font-weight:800;font-size:14px;
+    box-shadow:0 3px 0 var(--drvo-t),0 8px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+    max-width:86%;text-align:center}
+  #toast.vidljiv{opacity:1;transform:translate(-50%,0)}
+  .letac{position:fixed;z-index:70;pointer-events:none;width:20px;height:20px;will-change:transform;transition:transform .65s cubic-bezier(.4,-0.2,.7,.4),opacity .65s}
+  .plusxp{position:fixed;z-index:70;pointer-events:none;color:var(--xp);font-weight:800;font-size:15px;
+    text-shadow:0 1px 3px rgba(255,255,255,.8);animation:gorexp .9s ease-out forwards}
+  @keyframes gorexp{to{transform:translateY(-32px);opacity:0}}
+  #nivoVeo{position:fixed;inset:0;z-index:80;background:rgba(40,25,10,.55);display:none;align-items:center;justify-content:center;padding:24px}
+  #nivoVeo.otvoren{display:flex}
+  #nivoKartica{background:var(--papir);border:4px solid var(--zlato);border-radius:22px;padding:22px 20px;text-align:center;
+    max-width:320px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:pop .35s cubic-bezier(.2,1.6,.5,1)}
+  @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+  #nivoKartica .zvezda{font-size:44px}
+  #nivoKartica h3{font-size:23px;font-weight:800;margin:2px 0 6px}
+  #nivoKartica p{font-size:13.5px;color:var(--mastilo-b);font-weight:700;line-height:1.45}
+  .otkljucano{display:flex;justify-content:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .otkljucano .kockica{background:var(--papir-t);border:2.5px solid var(--zlato);border-radius:12px;padding:7px 9px;font-size:11.5px;font-weight:800;max-width:96px}
+  .otkljucano .kockica .slicica{width:38px;display:block;margin:0 auto 2px}
+  .spisak{margin-top:8px;text-align:left;display:inline-block}
+  .spisak div{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;padding:3px 0}
+  .spisak .slicica{width:26px;flex:none}
+  .konfeta{position:fixed;z-index:79;width:9px;height:12px;top:-14px;pointer-events:none;animation:pada linear forwards}
+  @keyframes pada{to{transform:translateY(110vh) rotate(560deg)}}
+
+  @media (max-width:359px){ .njive{grid-template-columns:repeat(2,1fr)} }
+  @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
