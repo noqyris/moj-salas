@@ -2,8 +2,7 @@
  * UI osnova = prototip. Prototip radi u svom jsdom-u (tests/helpers/prototip.ts), a port u
  * drugom JSDOM dokumentu koji se ubrizgava kao koren — isti DOM, ista serijalizacija stilova.
  *
- * Node okruženje je namerno: helper prototipa računa putanju preko `new URL(…, import.meta.url)`,
- * a u jsdom (client) okruženju Vite taj izraz prepisuje u URL resursa.
+ * Node okruženje: i prototip i port imaju svoj JSDOM prozor, pa globalni jsdom nije potreban.
  */
 import { JSDOM } from 'jsdom'
 import { beforeAll, describe, expect, it } from 'vitest'
