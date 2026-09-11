@@ -1,0 +1,14 @@
+{"trag":{"format":"moj-salas/paritet-trag","verzija":1,"ime":"skripta-poklon","seme":108,"start":"fresh","koraka":12,"orakl":"601b6a3b37334566"}}
+{"i":0,"a":{"k":"boot","start":"fresh","raw":null},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","S":{"v":3,"novac":50,"xp":0,"parcele":[{"c":null,"t":0,"z":false},{"c":null,"t":0,"z":false}],"mag":{"psenica":0,"sargarepa":0,"paprika":0,"bundeva":0,"grozdje":0,"brasno":0,"ajvar":0,"jaje":0,"mleko":0},"masine":{"mlin":{"k":false,"t":0},"kazan":{"k":false,"t":0}},"ziv":{"kokosinjac":{"k":false,"t":0},"stala":{"k":false,"t":0}},"narudzbe":[{"id":1,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"sargarepa","kom":1}],"din":85,"xp":7},{"id":2,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Treba mi za zimnicu, sine.","stavke":[{"k":"sargarepa","kom":1}],"din":85,"xp":7}],"mute":false,"sadio":false,"stat":{"ubrano":0,"zaradjeno":0,"isporuke":0},"poklonDan":"","videno":1768467600000}}
+{"i":1,"a":{"k":"openList","i":0},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":2,"a":{"k":"plant","i":0,"crop":"psenica"},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":40,"parcele":{"0":{"c":"psenica","t":1768467600000}},"sadio":true}}
+{"i":3,"a":{"k":"reload","ms":60000},"now":60000,"brojacN":3,"prosliNivo":1,"cuvaj":"odmah","dS":{"novac":115,"poklonDan":"2026-01-15","videno":1768467660000}}
+{"i":4,"a":{"k":"reload","ms":120000},"now":180000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"videno":1768467780000}}
+{"i":5,"a":{"k":"reload","ms":50219999},"now":50399999,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"videno":1768517999999}}
+{"i":6,"a":{"k":"reload","ms":1},"now":50400000,"brojacN":3,"prosliNivo":1,"cuvaj":"odmah","dS":{"novac":190,"poklonDan":"2026-01-16","videno":1768518000000}}
+{"i":7,"a":{"k":"reload","ms":-259200000},"now":-208800000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"videno":1768258800000}}
+{"i":8,"a":{"k":"wait","ms":1000},"now":-208799000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":9,"a":{"k":"reload","ms":432000000},"now":223201000,"brojacN":3,"prosliNivo":1,"cuvaj":"odmah","dS":{"novac":265,"poklonDan":"2026-01-18","videno":1768690801000}}
+{"i":10,"a":{"k":"overlayOk"},"now":223201000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":11,"a":{"k":"overlayOk"},"now":223201000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":12,"a":{"k":"harvest","i":0},"now":223201000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":2,"parcele":{"0":{"c":null,"t":0}},"mag":{"psenica":1},"stat":{"ubrano":1}}}

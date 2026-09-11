@@ -1,0 +1,18 @@
+{"trag":{"format":"moj-salas/paritet-trag","verzija":1,"ime":"skripta-granice","seme":112,"start":"granice","koraka":16,"orakl":"601b6a3b37334566"}}
+{"i":0,"a":{"k":"boot","start":"granice","raw":"{\"v\":3,\"novac\":100,\"xp\":0,\"parcele\":[{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false}],\"mag\":{\"psenica\":0,\"sargarepa\":0,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":0,\"ajvar\":0,\"jaje\":0,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":false,\"t\":0},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":false,\"t\":0},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":0,\"zaradjeno\":0,\"isporuke\":0},\"poklonDan\":\"2026-01-15\",\"videno\":1768467600000}"},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","S":{"v":3,"novac":100,"xp":0,"parcele":[{"c":null,"t":0,"z":false},{"c":null,"t":0,"z":false}],"mag":{"psenica":0,"sargarepa":0,"paprika":0,"bundeva":0,"grozdje":0,"brasno":0,"ajvar":0,"jaje":0,"mleko":0},"masine":{"mlin":{"k":false,"t":0},"kazan":{"k":false,"t":0}},"ziv":{"kokosinjac":{"k":false,"t":0},"stala":{"k":false,"t":0}},"narudzbe":[{"id":1,"ime":"Pekara „Zrno“","emoji":"🥖","boja":"#ffeccc","msg":"Peć je već vruća!","stavke":[{"k":"psenica","kom":2},{"k":"sargarepa","kom":1}],"din":130,"xp":10},{"id":2,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Plaćam odmah, kao i uvek.","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10}],"mute":true,"sadio":true,"stat":{"ubrano":0,"zaradjeno":0,"isporuke":0},"poklonDan":"2026-01-15","videno":1768467600000}}
+{"i":1,"a":{"k":"openList","i":0},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":2,"a":{"k":"plant","i":0,"crop":"psenica"},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":90,"parcele":{"0":{"c":"psenica","t":1768467600000}}}}
+{"i":3,"a":{"k":"openList","i":1},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":4,"a":{"k":"plant","i":1,"crop":"psenica"},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":80,"parcele":{"1":{"c":"psenica","t":1768467600000}}}}
+{"i":5,"a":{"k":"plant","i":1,"crop":"psenica"},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":6,"a":{"k":"wait","ms":20000},"now":20000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":7,"a":{"k":"harvestAll"},"now":20000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":4,"parcele":{"0":{"c":null,"t":0},"1":{"c":null,"t":0}},"mag":{"psenica":2},"stat":{"ubrano":2},"videno":1768467620000}}
+{"i":8,"a":{"k":"openList","i":0},"now":20000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":9,"a":{"k":"plant","i":0,"crop":"psenica"},"now":20000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":70,"parcele":{"0":{"c":"psenica","t":1768467620000}}}}
+{"i":10,"a":{"k":"wait","ms":19998},"now":39998,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":11,"a":{"k":"water","i":0},"now":39998,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"parcele":{"0":{"t":1768467619999,"z":true}},"videno":1768467639998}}
+{"i":12,"a":{"k":"wait","ms":1},"now":39999,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":13,"a":{"k":"harvest","i":0},"now":39999,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":6,"parcele":{"0":{"c":null,"t":0,"z":false}},"mag":{"psenica":3},"stat":{"ubrano":3},"videno":1768467639999}}
+{"i":14,"a":{"k":"harvest","i":0},"now":39999,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":15,"a":{"k":"openList","i":0},"now":39999,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":16,"a":{"k":"closeList"},"now":39999,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}

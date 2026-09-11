@@ -1,0 +1,202 @@
+{"trag":{"format":"moj-salas/paritet-trag","verzija":1,"ime":"fresh-s4","seme":4,"start":"fresh","koraka":200,"orakl":"601b6a3b37334566"}}
+{"i":0,"a":{"k":"boot","start":"fresh","raw":null},"now":0,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","S":{"v":3,"novac":50,"xp":0,"parcele":[{"c":null,"t":0,"z":false},{"c":null,"t":0,"z":false}],"mag":{"psenica":0,"sargarepa":0,"paprika":0,"bundeva":0,"grozdje":0,"brasno":0,"ajvar":0,"jaje":0,"mleko":0},"masine":{"mlin":{"k":false,"t":0},"kazan":{"k":false,"t":0}},"ziv":{"kokosinjac":{"k":false,"t":0},"stala":{"k":false,"t":0}},"narudzbe":[{"id":1,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Za unučiće spremam ručak…","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":1}],"din":105,"xp":8},{"id":2,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Plaćam odmah, kao i uvek.","stavke":[{"k":"sargarepa","kom":1}],"din":85,"xp":7}],"mute":false,"sadio":false,"stat":{"ubrano":0,"zaradjeno":0,"isporuke":0},"poklonDan":"","videno":1768467600000}}
+{"i":1,"a":{"k":"wait","ms":1000},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":2,"a":{"k":"buyPlot"},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":3,"a":{"k":"buyPlot"},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":4,"a":{"k":"openList","i":0},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":5,"a":{"k":"plant","i":0,"crop":"psenica"},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":40,"parcele":{"0":{"c":"psenica","t":1768467601000}},"sadio":true,"videno":1768467601000}}
+{"i":6,"a":{"k":"water","i":0},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"parcele":{"0":{"t":1768467596000,"z":true}}}}
+{"i":7,"a":{"k":"tab","tab":"farma"},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":8,"a":{"k":"openList","i":1},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":9,"a":{"k":"plant","i":1,"crop":"psenica"},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":30,"parcele":{"1":{"c":"psenica","t":1768467601000}}}}
+{"i":10,"a":{"k":"water","i":1},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"parcele":{"1":{"t":1768467596000,"z":true}}}}
+{"i":11,"a":{"k":"buyPlot"},"now":1000,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":12,"a":{"k":"wait","ms":15513},"now":16513,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":13,"a":{"k":"wait","ms":35554},"now":52067,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":14,"a":{"k":"wait","ms":55564},"now":107631,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":15,"a":{"k":"wait","ms":1000},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":16,"a":{"k":"buyPlot"},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":17,"a":{"k":"harvest","i":0},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":2,"parcele":{"0":{"c":null,"t":0,"z":false}},"mag":{"psenica":1},"stat":{"ubrano":1},"videno":1768467708631}}
+{"i":18,"a":{"k":"harvest","i":1},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":4,"parcele":{"1":{"c":null,"t":0,"z":false}},"mag":{"psenica":2},"stat":{"ubrano":2}}}
+{"i":19,"a":{"k":"openList","i":1},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":20,"a":{"k":"plant","i":1,"crop":"psenica"},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":20,"parcele":{"1":{"c":"psenica","t":1768467708631}}}}
+{"i":21,"a":{"k":"tab","tab":"radnja"},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":22,"a":{"k":"tab","tab":"pijaca"},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":23,"a":{"k":"sell","item":"psenica"},"now":108631,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":60,"mag":{"psenica":0},"stat":{"zaradjeno":40}}}
+{"i":24,"a":{"k":"wait","ms":557025},"now":665656,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":25,"a":{"k":"tab","tab":"narudzbe"},"now":665656,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":26,"a":{"k":"reject","id":1},"now":665656,"brojacN":4,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":2,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Plaćam odmah, kao i uvek.","stavke":[{"k":"sargarepa","kom":1}],"din":85,"xp":7},"1":{"id":3,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10}},"videno":1768468265656}}
+{"i":27,"a":{"k":"tab","tab":"radnja"},"now":665656,"brojacN":4,"prosliNivo":1,"cuvaj":"ne"}
+{"i":28,"a":{"k":"tab","tab":"pijaca"},"now":665656,"brojacN":4,"prosliNivo":1,"cuvaj":"ne"}
+{"i":29,"a":{"k":"tab","tab":"radnja"},"now":665656,"brojacN":4,"prosliNivo":1,"cuvaj":"ne"}
+{"i":30,"a":{"k":"reset"},"now":665656,"brojacN":3,"prosliNivo":1,"cuvaj":"odmah","dS":{"novac":50,"xp":0,"parcele":{"1":{"c":null,"t":0}},"narudzbe":{"0":{"id":1,"stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10},"1":{"id":2,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Tezga mi je poluprazna…","stavke":{"1":{"kom":1}},"din":105,"xp":8}},"sadio":false,"stat":{"ubrano":0,"zaradjeno":0}}}
+{"i":31,"a":{"k":"wait","ms":1000},"now":666656,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":32,"a":{"k":"tab","tab":"farma"},"now":666656,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":33,"a":{"k":"openList","i":0},"now":666656,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":34,"a":{"k":"plant","i":0,"crop":"sargarepa"},"now":666656,"brojacN":3,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":20,"parcele":{"0":{"c":"sargarepa","t":1768468266656}},"sadio":true,"videno":1768468266656}}
+{"i":35,"a":{"k":"tab","tab":"pijaca"},"now":666656,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":36,"a":{"k":"wait","ms":17130},"now":683786,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":37,"a":{"k":"wait","ms":1000},"now":684786,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":38,"a":{"k":"wait","ms":1000},"now":685786,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":39,"a":{"k":"tab","tab":"narudzbe"},"now":685786,"brojacN":3,"prosliNivo":1,"cuvaj":"ne"}
+{"i":40,"a":{"k":"reject","id":1},"now":685786,"brojacN":4,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":2,"msg":"Tezga mi je poluprazna…","stavke":{"1":{"kom":1}},"din":105,"xp":8},"1":{"id":3,"ime":"Kafana „Kod Žike“","emoji":"🍺","boja":"#fff3c4","msg":"Večeras je puna kafana.","stavke":{"0":{"k":"psenica"},"1":{"k":"sargarepa"}}}},"videno":1768468285786}}
+{"i":41,"a":{"k":"reject","id":3},"now":685786,"brojacN":5,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":4,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Treba mi za zimnicu, sine.","stavke":[{"k":"psenica","kom":4}],"din":95}}}}
+{"i":42,"a":{"k":"wait","ms":45846},"now":731632,"brojacN":5,"prosliNivo":1,"cuvaj":"ne"}
+{"i":43,"a":{"k":"reject","id":4},"now":731632,"brojacN":6,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":5,"stavke":{"0":{"k":"sargarepa","kom":1}},"din":85,"xp":7}},"videno":1768468331632}}
+{"i":44,"a":{"k":"reject","id":5},"now":731632,"brojacN":7,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":6,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":{"0":{"k":"psenica","kom":3}},"din":75,"xp":6}}}}
+{"i":45,"a":{"k":"wait","ms":1000},"now":732632,"brojacN":7,"prosliNivo":1,"cuvaj":"ne"}
+{"i":46,"a":{"k":"tab","tab":"narudzbe"},"now":732632,"brojacN":7,"prosliNivo":1,"cuvaj":"ne"}
+{"i":47,"a":{"k":"reject","id":2},"now":732632,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":6,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"psenica","kom":3}],"din":75,"xp":6},"1":{"id":7,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Tezga mi je poluprazna…","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":1}],"din":105,"xp":8}},"videno":1768468332632}}
+{"i":48,"a":{"k":"wait","ms":298977},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":49,"a":{"k":"tab","tab":"farma"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":50,"a":{"k":"buyPlot"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":51,"a":{"k":"tab","tab":"farma"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":52,"a":{"k":"openList","i":1},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":53,"a":{"k":"plant","i":1,"crop":"psenica"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":10,"parcele":{"1":{"c":"psenica","t":1768468631609}},"videno":1768468631609}}
+{"i":54,"a":{"k":"harvest","i":0},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":5,"parcele":{"0":{"c":null,"t":0}},"mag":{"sargarepa":1},"stat":{"ubrano":1}}}
+{"i":55,"a":{"k":"water","i":1},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"parcele":{"1":{"t":1768468626609,"z":true}}}}
+{"i":56,"a":{"k":"water","i":1},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":57,"a":{"k":"water","i":1},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":58,"a":{"k":"openList","i":0},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":59,"a":{"k":"plant","i":0,"crop":"psenica"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":0,"parcele":{"0":{"c":"psenica","t":1768468631609}}}}
+{"i":60,"a":{"k":"buyPlot"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":61,"a":{"k":"tab","tab":"narudzbe"},"now":1031609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":62,"a":{"k":"wait","ms":1000},"now":1032609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":63,"a":{"k":"tab","tab":"radnja"},"now":1032609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":64,"a":{"k":"wait","ms":1000},"now":1033609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":65,"a":{"k":"wait","ms":1000},"now":1034609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":66,"a":{"k":"wait","ms":1000},"now":1035609,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":67,"a":{"k":"wait","ms":27856},"now":1063465,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":68,"a":{"k":"toggleMute"},"now":1063465,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"mute":true,"videno":1768468663465}}
+{"i":69,"a":{"k":"wait","ms":1000},"now":1064465,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":70,"a":{"k":"tab","tab":"radnja"},"now":1064465,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":71,"a":{"k":"wait","ms":57350},"now":1121815,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":72,"a":{"k":"toggleMute"},"now":1121815,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"mute":false,"videno":1768468721815}}
+{"i":73,"a":{"k":"wait","ms":1000},"now":1122815,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":74,"a":{"k":"wait","ms":1000},"now":1123815,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":75,"a":{"k":"tab","tab":"farma"},"now":1123815,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":76,"a":{"k":"wait","ms":1000},"now":1124815,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":77,"a":{"k":"harvestAll"},"now":1124815,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":9,"parcele":{"0":{"c":null,"t":0},"1":{"c":null,"t":0,"z":false}},"mag":{"psenica":2},"stat":{"ubrano":3},"videno":1768468724815}}
+{"i":78,"a":{"k":"buyPlot"},"now":1124815,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":79,"a":{"k":"wait","ms":53058},"now":1177873,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":80,"a":{"k":"tab","tab":"narudzbe"},"now":1177873,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":81,"a":{"k":"tab","tab":"pijaca"},"now":1177873,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":82,"a":{"k":"wait","ms":57191},"now":1235064,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":83,"a":{"k":"sell","item":"sargarepa"},"now":1235064,"brojacN":8,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":70,"mag":{"sargarepa":0},"stat":{"zaradjeno":70},"videno":1768468835064}}
+{"i":84,"a":{"k":"wait","ms":1000},"now":1236064,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":85,"a":{"k":"tab","tab":"narudzbe"},"now":1236064,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":86,"a":{"k":"wait","ms":202335},"now":1438399,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":87,"a":{"k":"wait","ms":1000},"now":1439399,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":88,"a":{"k":"wait","ms":17203},"now":1456602,"brojacN":8,"prosliNivo":1,"cuvaj":"ne"}
+{"i":89,"a":{"k":"reject","id":7},"now":1456602,"brojacN":9,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":8,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Za unučiće spremam ručak…","stavke":[{"k":"psenica","kom":4}],"din":95}},"videno":1768469056602}}
+{"i":90,"a":{"k":"reject","id":8},"now":1456602,"brojacN":10,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":9,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Šef kuhinje je izričit.","stavke":[{"k":"psenica","kom":2},{"k":"sargarepa","kom":1}],"din":130,"xp":10}}}}
+{"i":91,"a":{"k":"wait","ms":18750},"now":1475352,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":92,"a":{"k":"tab","tab":"pijaca"},"now":1475352,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":93,"a":{"k":"sell","item":"psenica"},"now":1475352,"brojacN":10,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":108,"mag":{"psenica":0},"stat":{"zaradjeno":108},"videno":1768469075352}}
+{"i":94,"a":{"k":"wait","ms":1000},"now":1476352,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":95,"a":{"k":"wait","ms":1000},"now":1477352,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":96,"a":{"k":"tab","tab":"narudzbe"},"now":1477352,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":97,"a":{"k":"tab","tab":"pijaca"},"now":1477352,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":98,"a":{"k":"wait","ms":58196},"now":1535548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":99,"a":{"k":"tab","tab":"narudzbe"},"now":1535548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":100,"a":{"k":"wait","ms":1000},"now":1536548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":101,"a":{"k":"wait","ms":1000},"now":1537548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":102,"a":{"k":"tab","tab":"farma"},"now":1537548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":103,"a":{"k":"tab","tab":"narudzbe"},"now":1537548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":104,"a":{"k":"tab","tab":"pijaca"},"now":1537548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":105,"a":{"k":"tab","tab":"radnja"},"now":1537548,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":106,"a":{"k":"wait","ms":27471},"now":1565019,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":107,"a":{"k":"tab","tab":"radnja"},"now":1565019,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":108,"a":{"k":"wait","ms":1000},"now":1566019,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":109,"a":{"k":"wait","ms":1000},"now":1567019,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":110,"a":{"k":"wait","ms":47918},"now":1614937,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":111,"a":{"k":"wait","ms":1000},"now":1615937,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":112,"a":{"k":"tab","tab":"radnja"},"now":1615937,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":113,"a":{"k":"wait","ms":33698},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":114,"a":{"k":"tab","tab":"farma"},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":115,"a":{"k":"openList","i":1},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":116,"a":{"k":"plant","i":1,"crop":"psenica"},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":98,"parcele":{"1":{"c":"psenica","t":1768469249635}},"videno":1768469249635}}
+{"i":117,"a":{"k":"openList","i":0},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":118,"a":{"k":"plant","i":0,"crop":"sargarepa"},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":68,"parcele":{"0":{"c":"sargarepa","t":1768469249635}}}}
+{"i":119,"a":{"k":"water","i":1},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"parcele":{"1":{"t":1768469244635,"z":true}}}}
+{"i":120,"a":{"k":"water","i":0},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"parcele":{"0":{"t":1768469227135,"z":true}}}}
+{"i":121,"a":{"k":"tab","tab":"pijaca"},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":122,"a":{"k":"tab","tab":"narudzbe"},"now":1649635,"brojacN":10,"prosliNivo":1,"cuvaj":"ne"}
+{"i":123,"a":{"k":"reject","id":9},"now":1649635,"brojacN":11,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":10,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Tezga mi je poluprazna…","stavke":{"0":{"k":"sargarepa","kom":1},"1":{"k":"psenica","kom":2}}}}}}
+{"i":124,"a":{"k":"tab","tab":"pijaca"},"now":1649635,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":125,"a":{"k":"tab","tab":"farma"},"now":1649635,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":126,"a":{"k":"wait","ms":56150},"now":1705785,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":127,"a":{"k":"water","i":0},"now":1705785,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":128,"a":{"k":"water","i":0},"now":1705785,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":129,"a":{"k":"water","i":0},"now":1705785,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":130,"a":{"k":"tab","tab":"pijaca"},"now":1705785,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":131,"a":{"k":"tab","tab":"narudzbe"},"now":1705785,"brojacN":11,"prosliNivo":1,"cuvaj":"ne"}
+{"i":132,"a":{"k":"reject","id":6},"now":1705785,"brojacN":12,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":10,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Tezga mi je poluprazna…","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10},"1":{"id":11,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Šef kuhinje je izričit.","stavke":[{"k":"psenica","kom":4}],"din":95,"xp":8}},"videno":1768469305785}}
+{"i":133,"a":{"k":"reject","id":11},"now":1705785,"brojacN":13,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":12,"ime":"Piljar Pera","emoji":"🧢","boja":"#d9f0ff","msg":"Tezga mi je poluprazna…"}}}}
+{"i":134,"a":{"k":"reject","id":12},"now":1705785,"brojacN":14,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":13,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"psenica","kom":1},{"k":"sargarepa","kom":1}],"din":105}}}}
+{"i":135,"a":{"k":"tab","tab":"farma"},"now":1705785,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":136,"a":{"k":"harvest","i":1},"now":1705785,"brojacN":14,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":11,"parcele":{"1":{"c":null,"t":0,"z":false}},"mag":{"psenica":1},"stat":{"ubrano":4}}}
+{"i":137,"a":{"k":"wait","ms":5814},"now":1711599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":138,"a":{"k":"wait","ms":1000},"now":1712599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":139,"a":{"k":"water","i":0},"now":1712599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":140,"a":{"k":"openList","i":1},"now":1712599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":141,"a":{"k":"plant","i":1,"crop":"sargarepa"},"now":1712599,"brojacN":14,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":38,"parcele":{"1":{"c":"sargarepa","t":1768469312599}},"videno":1768469312599}}
+{"i":142,"a":{"k":"tab","tab":"radnja"},"now":1712599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":143,"a":{"k":"wait","ms":1000},"now":1713599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":144,"a":{"k":"wait","ms":1000},"now":1714599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":145,"a":{"k":"toggleMute"},"now":1714599,"brojacN":14,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"mute":true,"videno":1768469314599}}
+{"i":146,"a":{"k":"wait","ms":1000},"now":1715599,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":147,"a":{"k":"wait","ms":24043},"now":1739642,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":148,"a":{"k":"wait","ms":412029},"now":2151671,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":149,"a":{"k":"wait","ms":1000},"now":2152671,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":150,"a":{"k":"tab","tab":"radnja"},"now":2152671,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":151,"a":{"k":"tab","tab":"pijaca"},"now":2152671,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":152,"a":{"k":"wait","ms":56763},"now":2209434,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":153,"a":{"k":"wait","ms":11505},"now":2220939,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":154,"a":{"k":"wait","ms":632939},"now":2853878,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":155,"a":{"k":"sell","item":"psenica"},"now":2853878,"brojacN":14,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":53,"mag":{"psenica":0},"stat":{"zaradjeno":123},"videno":1768470453878}}
+{"i":156,"a":{"k":"wait","ms":11693},"now":2865571,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":157,"a":{"k":"tab","tab":"narudzbe"},"now":2865571,"brojacN":14,"prosliNivo":1,"cuvaj":"ne"}
+{"i":158,"a":{"k":"reject","id":13},"now":2865571,"brojacN":15,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":14,"stavke":[{"k":"psenica","kom":3}],"din":75,"xp":6}},"videno":1768470465571}}
+{"i":159,"a":{"k":"reject","id":10},"now":2865571,"brojacN":16,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":14,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"psenica","kom":3}],"din":75,"xp":6},"1":{"id":15,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Za unučiće spremam ručak…","stavke":{"0":{"k":"sargarepa","kom":1}},"din":85,"xp":7}}}}
+{"i":160,"a":{"k":"reject","id":14},"now":2865571,"brojacN":17,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":15,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Za unučiće spremam ručak…","stavke":{"0":{"k":"sargarepa","kom":1}},"din":85,"xp":7},"1":{"id":16,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10}}}}
+{"i":161,"a":{"k":"tab","tab":"narudzbe"},"now":2865571,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":162,"a":{"k":"wait","ms":1000},"now":2866571,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":163,"a":{"k":"wait","ms":23536},"now":2890107,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":164,"a":{"k":"tab","tab":"farma"},"now":2890107,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":165,"a":{"k":"wait","ms":803961},"now":3694068,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":166,"a":{"k":"harvest","i":0},"now":3694068,"brojacN":17,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":16,"parcele":{"0":{"c":null,"t":0,"z":false}},"mag":{"sargarepa":1},"stat":{"ubrano":5},"videno":1768471294068}}
+{"i":167,"a":{"k":"tab","tab":"pijaca"},"now":3694068,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":168,"a":{"k":"sell","item":"sargarepa"},"now":3694068,"brojacN":17,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":119,"mag":{"sargarepa":0},"stat":{"zaradjeno":189}}}
+{"i":169,"a":{"k":"wait","ms":14900},"now":3708968,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":170,"a":{"k":"tab","tab":"farma"},"now":3708968,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":171,"a":{"k":"harvest","i":1},"now":3708968,"brojacN":17,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"xp":21,"parcele":{"1":{"c":null,"t":0}},"mag":{"sargarepa":1},"stat":{"ubrano":6},"videno":1768471308968}}
+{"i":172,"a":{"k":"wait","ms":1000},"now":3709968,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":173,"a":{"k":"wait","ms":1000},"now":3710968,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":174,"a":{"k":"tab","tab":"radnja"},"now":3710968,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":175,"a":{"k":"wait","ms":28632},"now":3739600,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":176,"a":{"k":"tab","tab":"narudzbe"},"now":3739600,"brojacN":17,"prosliNivo":1,"cuvaj":"ne"}
+{"i":177,"a":{"k":"reject","id":15},"now":3739600,"brojacN":18,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":16,"ime":"Resto „Šumadija“","emoji":"🍽️","boja":"#e4f5d8","msg":"Samo sveže, molim.","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10},"1":{"id":17,"msg":"Šef kuhinje je izričit.","stavke":[{"k":"sargarepa","kom":1}],"din":85,"xp":7}},"videno":1768471339600}}
+{"i":178,"a":{"k":"wait","ms":1000},"now":3740600,"brojacN":18,"prosliNivo":1,"cuvaj":"ne"}
+{"i":179,"a":{"k":"deliver","id":17},"now":3740600,"brojacN":19,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"novac":204,"xp":28,"mag":{"sargarepa":0},"narudzbe":{"1":{"id":18,"msg":"Samo sveže, molim.","stavke":[{"k":"psenica","kom":2},{"k":"sargarepa","kom":1}],"din":130,"xp":10}},"stat":{"zaradjeno":274,"isporuke":1},"videno":1768471340600}}
+{"i":180,"a":{"k":"wait","ms":686066},"now":4426666,"brojacN":19,"prosliNivo":1,"cuvaj":"ne"}
+{"i":181,"a":{"k":"reject","id":18},"now":4426666,"brojacN":20,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":19,"msg":"Šef kuhinje je izričit.","stavke":{"0":{"k":"sargarepa","kom":1},"1":{"k":"psenica","kom":2}}}},"videno":1768472026666}}
+{"i":182,"a":{"k":"tab","tab":"narudzbe"},"now":4426666,"brojacN":20,"prosliNivo":1,"cuvaj":"ne"}
+{"i":183,"a":{"k":"reject","id":19},"now":4426666,"brojacN":21,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":20,"msg":"Samo sveže, molim.","stavke":[{"k":"psenica","kom":3}],"din":75,"xp":6}}}}
+{"i":184,"a":{"k":"wait","ms":482006},"now":4908672,"brojacN":21,"prosliNivo":1,"cuvaj":"ne"}
+{"i":185,"a":{"k":"reject","id":20},"now":4908672,"brojacN":22,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":21}},"videno":1768472508672}}
+{"i":186,"a":{"k":"reject","id":21},"now":4908672,"brojacN":23,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":22,"stavke":{"0":{"kom":2}},"din":50,"xp":4}}}}
+{"i":187,"a":{"k":"reject","id":22},"now":4908672,"brojacN":24,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"1":{"id":23,"ime":"Pekara „Zrno“","emoji":"🥖","boja":"#ffeccc","msg":"Peć je već vruća!","stavke":[{"k":"sargarepa","kom":1},{"k":"psenica","kom":2}],"din":130,"xp":10}}}}
+{"i":188,"a":{"k":"wait","ms":1000},"now":4909672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":189,"a":{"k":"tab","tab":"radnja"},"now":4909672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":190,"a":{"k":"wait","ms":1000},"now":4910672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":191,"a":{"k":"tab","tab":"pijaca"},"now":4910672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":192,"a":{"k":"wait","ms":1000},"now":4911672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":193,"a":{"k":"tab","tab":"radnja"},"now":4911672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":194,"a":{"k":"tab","tab":"narudzbe"},"now":4911672,"brojacN":24,"prosliNivo":1,"cuvaj":"ne"}
+{"i":195,"a":{"k":"reject","id":16},"now":4911672,"brojacN":25,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":23,"ime":"Pekara „Zrno“","emoji":"🥖","boja":"#ffeccc","msg":"Peć je već vruća!"},"1":{"id":24,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Treba mi za zimnicu, sine.","stavke":{"0":{"k":"psenica"},"1":{"k":"sargarepa","kom":1}},"din":105,"xp":8}},"videno":1768472511672}}
+{"i":196,"a":{"k":"wait","ms":252607},"now":5164279,"brojacN":25,"prosliNivo":1,"cuvaj":"ne"}
+{"i":197,"a":{"k":"reject","id":23},"now":5164279,"brojacN":26,"prosliNivo":1,"cuvaj":"odlozeno","dS":{"narudzbe":{"0":{"id":24,"ime":"Baka Mira","emoji":"👵","boja":"#ffe0e6","msg":"Treba mi za zimnicu, sine.","stavke":{"0":{"k":"psenica"},"1":{"k":"sargarepa","kom":1}},"din":105,"xp":8},"1":{"id":25,"ime":"Kafana „Kod Žike“","emoji":"🍺","boja":"#fff3c4","msg":"Gosti traže domaće!","stavke":[{"k":"psenica","kom":3}],"din":75,"xp":6}},"videno":1768472764279}}
+{"i":198,"a":{"k":"tab","tab":"narudzbe"},"now":5164279,"brojacN":26,"prosliNivo":1,"cuvaj":"ne"}
+{"i":199,"a":{"k":"wait","ms":1000},"now":5165279,"brojacN":26,"prosliNivo":1,"cuvaj":"ne"}
+{"i":200,"a":{"k":"wait","ms":46176},"now":5211455,"brojacN":26,"prosliNivo":1,"cuvaj":"ne"}

@@ -1,0 +1,25 @@
+{"trag":{"format":"moj-salas/paritet-trag","verzija":1,"ime":"skripta-zivotinje","seme":104,"start":"rich","koraka":23,"orakl":"601b6a3b37334566"}}
+{"i":0,"a":{"k":"boot","start":"rich","raw":"{\"v\":3,\"novac\":5000,\"xp\":5000,\"parcele\":[{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false}],\"mag\":{\"psenica\":20,\"sargarepa\":10,\"paprika\":9,\"bundeva\":2,\"grozdje\":0,\"brasno\":0,\"ajvar\":0,\"jaje\":0,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":false,\"t\":0},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":false,\"t\":0},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":0,\"zaradjeno\":0,\"isporuke\":0},\"poklonDan\":\"\",\"videno\":1768464000000}"},"now":0,"brojacN":3,"prosliNivo":8,"cuvaj":"odmah","S":{"v":3,"novac":5320,"xp":5000,"parcele":[{"c":null,"t":0,"z":false},{"c":null,"t":0,"z":false},{"c":null,"t":0,"z":false}],"mag":{"psenica":20,"sargarepa":10,"paprika":9,"bundeva":2,"grozdje":0,"brasno":0,"ajvar":0,"jaje":0,"mleko":0},"masine":{"mlin":{"k":false,"t":0},"kazan":{"k":false,"t":0}},"ziv":{"kokosinjac":{"k":false,"t":0},"stala":{"k":false,"t":0}},"narudzbe":[{"id":1,"ime":"Kafana „Kod Žike“","emoji":"🍺","boja":"#fff3c4","msg":"Večeras je puna kafana.","stavke":[{"k":"bundeva","kom":1},{"k":"psenica","kom":12}],"din":1455,"xp":112},{"id":2,"ime":"Kafana „Kod Žike“","emoji":"🍺","boja":"#fff3c4","msg":"Gosti traže domaće!","stavke":[{"k":"psenica","kom":12}],"din":285,"xp":22}],"mute":true,"sadio":true,"stat":{"ubrano":0,"zaradjeno":0,"isporuke":0},"poklonDan":"2026-01-15","videno":1768467600000}}
+{"i":1,"a":{"k":"overlayOk"},"now":0,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":2,"a":{"k":"tab","tab":"radnja"},"now":0,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":3,"a":{"k":"buy","id":"kokosinjac"},"now":0,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"novac":4420,"ziv":{"kokosinjac":{"k":true,"t":1768467600000}}}}
+{"i":4,"a":{"k":"buy","id":"stala"},"now":0,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"novac":1820,"ziv":{"stala":{"k":true,"t":1768467600000}}}}
+{"i":5,"a":{"k":"wait","ms":3600000},"now":3600000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":6,"a":{"k":"tab","tab":"farma"},"now":3600000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":7,"a":{"k":"collect","id":"kokosinjac"},"now":3600000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5004,"mag":{"jaje":4},"ziv":{"kokosinjac":{"t":1768471200000}},"stat":{"ubrano":4},"videno":1768471200000}}
+{"i":8,"a":{"k":"wait","ms":1000},"now":3601000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":9,"a":{"k":"wait","ms":400000},"now":4001000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":10,"a":{"k":"collect","id":"kokosinjac"},"now":4001000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5006,"mag":{"jaje":6},"ziv":{"kokosinjac":{"t":1768471560000}},"stat":{"ubrano":6},"videno":1768471601000}}
+{"i":11,"a":{"k":"wait","ms":140000},"now":4141000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":12,"a":{"k":"collect","id":"kokosinjac"},"now":4141000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5007,"mag":{"jaje":7},"ziv":{"kokosinjac":{"t":1768471740000}},"stat":{"ubrano":7},"videno":1768471741000}}
+{"i":13,"a":{"k":"collect","id":"stala"},"now":4141000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5025,"mag":{"mleko":3},"ziv":{"stala":{"t":1768471741000}},"stat":{"ubrano":10}}}
+{"i":14,"a":{"k":"wait","ms":86400000},"now":90541000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":15,"a":{"k":"collect","id":"stala"},"now":90541000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5043,"mag":{"mleko":6},"ziv":{"stala":{"t":1768558141000}},"stat":{"ubrano":13},"videno":1768558141000}}
+{"i":16,"a":{"k":"collect","id":"kokosinjac"},"now":90541000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5047,"mag":{"jaje":11},"ziv":{"kokosinjac":{"t":1768558141000}},"stat":{"ubrano":17}}}
+{"i":17,"a":{"k":"reload","ms":7200000},"now":97741000,"brojacN":3,"prosliNivo":8,"cuvaj":"odmah","dS":{"novac":2140,"poklonDan":"2026-01-16","videno":1768565341000}}
+{"i":18,"a":{"k":"overlayOk"},"now":97741000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":19,"a":{"k":"overlayOk"},"now":97741000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":20,"a":{"k":"collect","id":"kokosinjac"},"now":97741000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5051,"mag":{"jaje":15},"ziv":{"kokosinjac":{"t":1768565341000}},"stat":{"ubrano":21}}}
+{"i":21,"a":{"k":"collect","id":"stala"},"now":97741000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5069,"mag":{"mleko":9},"ziv":{"stala":{"t":1768565341000}},"stat":{"ubrano":24}}}
+{"i":22,"a":{"k":"wait","ms":1800000},"now":99541000,"brojacN":3,"prosliNivo":8,"cuvaj":"ne"}
+{"i":23,"a":{"k":"collect","id":"stala"},"now":99541000,"brojacN":3,"prosliNivo":8,"cuvaj":"odlozeno","dS":{"xp":5087,"mag":{"mleko":12},"ziv":{"stala":{"t":1768567141000}},"stat":{"ubrano":27},"videno":1768567141000}}

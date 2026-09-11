@@ -14,6 +14,7 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "test:prototip": "node referenca-sim.jsdom.js",
+    "parity:gen": "node tools/parity/generisi.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
