@@ -1,0 +1,7 @@
+dist
+coverage
+package-lock.json
+# Izvor istine i referentni harness — ne formatiramo tuđe fajlove
+moja-farma-v3.html
+referenca-sim.jsdom.js
+CLAUDE.md
