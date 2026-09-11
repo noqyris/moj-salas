@@ -1,0 +1,2832 @@
+{
+ "BASE": 1789000000000,
+ "note": "S as left by prototype ucitaj() (lines 548-569) with Date.now() frozen at BASE; raw=null means key missing (get throws).",
+ "cases": [
+  {
+   "name": "missing key",
+   "class": "missing",
+   "raw": null,
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "empty string",
+   "class": "rejected",
+   "raw": "",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "JSON null",
+   "class": "rejected",
+   "raw": "null",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "invalid JSON",
+   "class": "rejected",
+   "raw": "{\"v\":3,",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "JSON number",
+   "class": "rejected",
+   "raw": "5",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "JSON array",
+   "class": "rejected",
+   "raw": "[]",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "JSON string",
+   "class": "rejected",
+   "raw": "\"x\"",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v:1",
+   "class": "rejected",
+   "raw": "{\"v\":1,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v:4 (future)",
+   "class": "rejected",
+   "raw": "{\"v\":4,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v:\"3\" (string)",
+   "class": "rejected",
+   "raw": "{\"v\":\"3\",\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v missing",
+   "class": "rejected",
+   "raw": "{\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v2 TEST4 fixture",
+   "class": "producible",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":\"paprika\",\"t\":1788999940000},{\"c\":null,\"t\":0}],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":true,\"kazanT\":0,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true,\"videno\":1788999999000}",
+   "S": {
+    "v": 3,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": true,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1788999999000,
+    "kazan": true,
+    "kazanT": 0
+   }
+  },
+  {
+   "name": "v2 minimal {v:2}",
+   "class": "hand-edited",
+   "raw": "{\"v\":2}",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v2 kazan cooking",
+   "class": "producible",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":\"paprika\",\"t\":1788999940000},{\"c\":null,\"t\":0}],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":true,\"kazanT\":1788999940000,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true,\"videno\":1788999999000}",
+   "S": {
+    "v": 3,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": true,
+      "t": 1788999940000
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1788999999000,
+    "kazan": true,
+    "kazanT": 1788999940000
+   }
+  },
+  {
+   "name": "v2 kazanT set but kazan false",
+   "class": "hand-edited",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":\"paprika\",\"t\":1788999940000},{\"c\":null,\"t\":0}],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":false,\"kazanT\":1788999940000,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true,\"videno\":1788999999000}",
+   "S": {
+    "v": 3,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 1788999940000
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1788999999000,
+    "kazan": false,
+    "kazanT": 1788999940000
+   }
+  },
+  {
+   "name": "v2 with stat+poklonDan",
+   "class": "producible",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":\"paprika\",\"t\":1788999940000},{\"c\":null,\"t\":0}],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":true,\"kazanT\":0,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true,\"videno\":1788999999000,\"stat\":{\"ubrano\":9,\"zaradjeno\":99},\"poklonDan\":\"2026-01-01\"}",
+   "S": {
+    "v": 3,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": true,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 9,
+     "zaradjeno": 99,
+     "isporuke": 0
+    },
+    "poklonDan": "2026-01-01",
+    "videno": 1788999999000,
+    "kazan": true,
+    "kazanT": 0
+   }
+  },
+  {
+   "name": "v2 without videno",
+   "class": "producible",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":\"paprika\",\"t\":1788999940000},{\"c\":null,\"t\":0}],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":true,\"kazanT\":0,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true}",
+   "S": {
+    "v": 3,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": true,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000,
+    "kazan": true,
+    "kazanT": 0
+   }
+  },
+  {
+   "name": "v2 with masine present (kazan override wins)",
+   "class": "hand-edited",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":\"paprika\",\"t\":1788999940000},{\"c\":null,\"t\":0}],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":false,\"kazanT\":0,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true,\"videno\":1788999999000,\"masine\":{\"mlin\":{\"k\":true,\"t\":0},\"kazan\":{\"k\":true,\"t\":123}}}",
+   "S": {
+    "v": 3,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1788999999000,
+    "kazan": false,
+    "kazanT": 0
+   }
+  },
+  {
+   "name": "v3 full",
+   "class": "producible",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 as written after a v2 migration (kazan/kazanT/ko carried)",
+   "class": "producible",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000,\"kazan\":true,\"kazanT\":0}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000,
+    "kazan": true,
+    "kazanT": 0
+   }
+  },
+  {
+   "name": "v3 only {v:3}",
+   "class": "hand-edited",
+   "raw": "{\"v\":3}",
+   "S": {
+    "v": 3,
+    "novac": 50,
+    "xp": 0,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": false,
+    "sadio": false,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1789000000000
+   }
+  },
+  {
+   "name": "v3 parcele []",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 parcele non-array",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":{\"0\":{\"c\":\"psenica\",\"t\":1,\"z\":false}},\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 parcele odd elements",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1789000000000,\"z\":1,\"extra\":9},5,{\"c\":\"\",\"t\":null},{}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1789000000000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 unknown keys everywhere",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0,\"tursija\":7},\"masine\":{\"mlin\":{\"k\":true,\"t\":0,\"lvl\":2},\"kazan\":{\"k\":false,\"t\":0},\"susara\":{\"k\":true,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0},\"svinje\":{\"k\":true,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3,\"rekord\":9},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000,\"extraTop\":{\"a\":1}}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0,
+     "tursija": 7
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 0,
+      "lvl": 2
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3,
+     "rekord": 9
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000,
+    "extraTop": {
+     "a": 1
+    }
+   }
+  },
+  {
+   "name": "v3 nested objects null",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":null,\"masine\":null,\"ziv\":null,\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":null,\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 0,
+     "sargarepa": 0,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 0,
+     "ajvar": 0,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 masine.kazan partial",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"kazan\":{\"k\":true}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": true,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 narudzbe non-array",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":\"x\",\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 three orders (kept)",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10},{\"id\":9,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     },
+     {
+      "id": 9,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 twelve parcels (kept)",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false},{\"c\":null,\"t\":0,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v3 novac null, videno null",
+   "class": "hand-edited",
+   "raw": "{\"v\":3,\"novac\":null,\"xp\":150,\"parcele\":[{\"c\":\"psenica\",\"t\":1788999995000,\"z\":true},{\"c\":null,\"t\":0,\"z\":false},{\"c\":\"paprika\",\"t\":1788999940000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":[{\"id\":7,\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#ffe0e6\",\"msg\":\"Treba mi za zimnicu, sine.\",\"stavke\":[{\"k\":\"psenica\",\"kom\":3}],\"din\":70,\"xp\":6},{\"id\":8,\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#d9f0ff\",\"msg\":\"Plaćam odmah, kao i uvek.\",\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1},{\"k\":\"psenica\",\"kom\":2}],\"din\":130,\"xp\":10}],\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":null}",
+   "S": {
+    "v": 3,
+    "novac": null,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": "psenica",
+      "t": 1788999995000,
+      "z": true
+     },
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     {
+      "c": "paprika",
+      "t": 1788999940000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 7,
+      "ime": "Baka Mira",
+      "emoji": "👵",
+      "boja": "#ffe0e6",
+      "msg": "Treba mi za zimnicu, sine.",
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 3
+       }
+      ],
+      "din": 70,
+      "xp": 6
+     },
+     {
+      "id": 8,
+      "ime": "Piljar Pera",
+      "emoji": "🧢",
+      "boja": "#d9f0ff",
+      "msg": "Plaćam odmah, kao i uvek.",
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       },
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 130,
+      "xp": 10
+     }
+    ],
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": null
+   }
+  },
+  {
+   "name": "v3 null parcel (sparse array from stale izabrana) -> PARTIAL state",
+   "class": "corrupt",
+   "raw": "{\"v\":3,\"novac\":1234,\"xp\":150,\"parcele\":[{\"c\":null,\"t\":0,\"z\":false},null,{\"c\":\"psenica\",\"t\":1789000000000,\"z\":false}],\"mag\":{\"psenica\":5,\"sargarepa\":1,\"paprika\":0,\"bundeva\":0,\"grozdje\":0,\"brasno\":2,\"ajvar\":0,\"jaje\":3,\"mleko\":0},\"masine\":{\"mlin\":{\"k\":true,\"t\":1788999970000},\"kazan\":{\"k\":false,\"t\":0}},\"ziv\":{\"kokosinjac\":{\"k\":true,\"t\":1788999600000},\"stala\":{\"k\":false,\"t\":0}},\"narudzbe\":\"x\",\"mute\":true,\"sadio\":true,\"stat\":{\"ubrano\":11,\"zaradjeno\":222,\"isporuke\":3},\"poklonDan\":\"2026-09-09\",\"videno\":1788996400000}",
+   "S": {
+    "v": 3,
+    "novac": 1234,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0,
+      "z": false
+     },
+     null,
+     {
+      "c": "psenica",
+      "t": 1789000000000,
+      "z": false
+     }
+    ],
+    "mag": {
+     "psenica": 5,
+     "sargarepa": 1,
+     "paprika": 0,
+     "bundeva": 0,
+     "grozdje": 0,
+     "brasno": 2,
+     "ajvar": 0,
+     "jaje": 3,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": true,
+      "t": 1788999970000
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": true,
+      "t": 1788999600000
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": "x",
+    "mute": true,
+    "sadio": true,
+    "stat": {
+     "ubrano": 11,
+     "zaradjeno": 222,
+     "isporuke": 3
+    },
+    "poklonDan": "2026-09-09",
+    "videno": 1788996400000
+   }
+  },
+  {
+   "name": "v2 null parcel -> PARTIAL state (v stays 2, kazan not mapped)",
+   "class": "corrupt",
+   "raw": "{\"v\":2,\"novac\":777,\"xp\":150,\"parcele\":[{\"c\":null,\"t\":0},null],\"mag\":{\"psenica\":3,\"sargarepa\":0,\"paprika\":2,\"bundeva\":0,\"grozdje\":1,\"ajvar\":1},\"kazan\":true,\"kazanT\":0,\"narudzbe\":[{\"id\":5,\"ko\":{\"ime\":\"Baka Mira\",\"emoji\":\"👵\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"psenica\",\"kom\":2}],\"din\":60,\"xp\":5},{\"id\":6,\"ko\":{\"ime\":\"Piljar Pera\",\"emoji\":\"🧢\",\"boja\":\"#fff\"},\"stavke\":[{\"k\":\"sargarepa\",\"kom\":1}],\"din\":80,\"xp\":6}],\"mute\":false,\"sadio\":true,\"videno\":1788999999000}",
+   "S": {
+    "v": 2,
+    "novac": 777,
+    "xp": 150,
+    "parcele": [
+     {
+      "c": null,
+      "t": 0
+     },
+     null
+    ],
+    "mag": {
+     "psenica": 3,
+     "sargarepa": 0,
+     "paprika": 2,
+     "bundeva": 0,
+     "grozdje": 1,
+     "brasno": 0,
+     "ajvar": 1,
+     "jaje": 0,
+     "mleko": 0
+    },
+    "masine": {
+     "mlin": {
+      "k": false,
+      "t": 0
+     },
+     "kazan": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "ziv": {
+     "kokosinjac": {
+      "k": false,
+      "t": 0
+     },
+     "stala": {
+      "k": false,
+      "t": 0
+     }
+    },
+    "narudzbe": [
+     {
+      "id": 5,
+      "ko": {
+       "ime": "Baka Mira",
+       "emoji": "👵",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "psenica",
+        "kom": 2
+       }
+      ],
+      "din": 60,
+      "xp": 5
+     },
+     {
+      "id": 6,
+      "ko": {
+       "ime": "Piljar Pera",
+       "emoji": "🧢",
+       "boja": "#fff"
+      },
+      "stavke": [
+       {
+        "k": "sargarepa",
+        "kom": 1
+       }
+      ],
+      "din": 80,
+      "xp": 6
+     }
+    ],
+    "mute": false,
+    "sadio": true,
+    "stat": {
+     "ubrano": 0,
+     "zaradjeno": 0,
+     "isporuke": 0
+    },
+    "poklonDan": "",
+    "videno": 1788999999000,
+    "kazan": true,
+    "kazanT": 0
+   }
+  }
+ ]
+}
