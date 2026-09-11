@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Moj Salaš</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nebo1:#a8dcef; --nebo2:#dff3e0;
+    --trava:#8fc750; --trava-t:#6ba83a;
+    --zemlja:#9c6a3e; --zemlja-t:#8b5a33; --zemlja-ivica:#6e4222;
+    --drvo:#a9713f; --drvo-t:#7c4e26; --drvo-s:#b8804c;
+    --papir:#fff6e3; --papir-t:#f4e6c8;
+    --mastilo:#4a2f16; --mastilo-b:#8a6a45;
+    --zlato:#ffc53d; --zlato-t:#d89a17;
+    --zeleno:#5faf3a; --zeleno-t:#468428;
+    --crveno:#e8542f; --crveno-t:#c23a1a;
+    --voda:#4aa8d8; --xp:#8a63d2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:'Baloo 2',system-ui,sans-serif;color:var(--mastilo);background:var(--trava);
+    overscroll-behavior-y:none;user-select:none;-webkit-user-select:none}
+  #app{max-width:480px;margin:0 auto;min-height:100%;position:relative;padding-bottom:96px}
+
+  /* ============ SCENA ============ */
+  #scena{position:relative;height:168px;overflow:hidden;background:linear-gradient(var(--nebo1),var(--nebo2) 78%)}
+  .sunce{position:absolute;top:16px;left:22px;width:52px;height:52px;border-radius:50%;
+    background:radial-gradient(circle at 38% 34%,#fff2b8,#ffe066 55%,#ffd23f);
+    box-shadow:0 0 34px 14px rgba(255,224,102,.55);animation:sija 5s ease-in-out infinite}
+  @keyframes sija{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  .oblak{position:absolute;background:#fff;border-radius:99px;opacity:.92;animation:plovi linear infinite}
+  .oblak::before,.oblak::after{content:'';position:absolute;background:#fff;border-radius:50%}
+  .oblak.o1{top:24px;width:64px;height:20px;animation-duration:75s}
+  .oblak.o1::before{width:28px;height:28px;top:-14px;left:10px}
+  .oblak.o1::after{width:20px;height:20px;top:-9px;left:32px}
+  .oblak.o2{top:58px;width:46px;height:15px;animation-duration:95s;animation-delay:-40s;opacity:.75}
+  .oblak.o2::before{width:20px;height:20px;top:-10px;left:8px}
+  .oblak.o2::after{width:14px;height:14px;top:-6px;left:24px}
+  @keyframes plovi{from{transform:translateX(-90px)}to{transform:translateX(500px)}}
+  .brdo{position:absolute;border-radius:50%}
+  .brdo.zadnje{width:150%;height:190px;left:-42%;bottom:-118px;background:#a5d468}
+  .brdo.prednje{width:170%;height:210px;left:-12%;bottom:-138px;background:var(--trava)}
+  #scena .ukras{position:absolute;bottom:6px}
+  #scena .ambar{right:14px;width:104px}
+  #scena .drvo1{right:118px;width:44px;bottom:12px}
+  #scena .drvo2{left:12px;width:36px;bottom:2px}
+  .scenaKoka{position:absolute;right:96px;bottom:2px;width:32px;display:none;animation:kljuca 2.6s ease-in-out infinite;transform-origin:bottom center}
+  @keyframes kljuca{0%,100%{transform:rotate(0)}12%{transform:rotate(9deg) translateY(1px)}24%{transform:rotate(0)}60%{transform:translateX(3px)}}
+  .scenaKrava{position:absolute;left:58px;bottom:0;width:56px;display:none;animation:pase 5s ease-in-out infinite;transform-origin:bottom center}
+  @keyframes pase{0%,100%{transform:rotate(0)}30%{transform:rotate(3.5deg)}55%{transform:rotate(0)}}
+  .leptir{position:absolute;width:26px;z-index:3;animation:leti 17s ease-in-out infinite alternate;top:72px;left:-28px}
+  .leptir.l2{top:40px;width:20px;animation-duration:23s;animation-delay:-9s}
+  @keyframes leti{0%{transform:translate(0,0) rotate(8deg)}25%{transform:translate(95px,-16px) rotate(-9deg)}
+    50%{transform:translate(190px,8px) rotate(8deg)}75%{transform:translate(275px,-12px) rotate(-7deg)}
+    100%{transform:translate(360px,2px) rotate(5deg)}}
+  .leptir .krL,.leptir .krD{transform-box:fill-box;animation:mah .4s ease-in-out infinite alternate}
+  .leptir .krL{transform-origin:right center}
+  .leptir .krD{transform-origin:left center}
+  @keyframes mah{to{transform:scaleX(.5)}}
+  .krila{transform-box:fill-box;transform-origin:center;animation:vrti 8s linear infinite}
+  @keyframes vrti{to{transform:rotate(360deg)}}
+
+  /* HUD */
+  #hud{position:absolute;top:10px;left:0;right:0;padding:0 12px;display:flex;justify-content:space-between;align-items:flex-start;z-index:5}
+  .tabla{background:linear-gradient(var(--drvo-s),var(--drvo));border:3px solid var(--drvo-t);border-radius:12px;
+    padding:6px 14px;color:#fff3dc;font-weight:800;font-size:18px;line-height:1.05;
+    box-shadow:0 3px 0 var(--drvo-t),0 5px 10px rgba(0,0,0,.25);position:relative}
+  .tabla small{display:block;font-size:9.5px;font-weight:600;letter-spacing:1.6px;opacity:.8;text-transform:uppercase}
+  .tabla::before,.tabla::after{content:'';position:absolute;top:5px;width:5px;height:5px;border-radius:50%;background:#5c3a1c;box-shadow:inset 0 1px 1px rgba(0,0,0,.6)}
+  .tabla::before{left:6px}.tabla::after{right:6px}
+  #hudDesno{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+  .pilula{display:flex;align-items:center;gap:6px;background:var(--papir);border:2.5px solid var(--drvo-s);
+    border-radius:999px;padding:5px 12px 5px 8px;font-weight:800;font-size:16px;box-shadow:0 2px 0 var(--drvo-t)}
+  .pilula svg{width:19px;height:19px;flex:none}
+  .nivo{display:flex;align-items:center;gap:7px;background:var(--papir);border:2.5px solid var(--drvo-s);
+    border-radius:999px;padding:4px 11px;font-weight:800;font-size:12.5px;box-shadow:0 2px 0 var(--drvo-t)}
+  .nivo .xpTraka{width:56px;height:7px;border-radius:99px;background:#e5d6b4;overflow:hidden}
+  .nivo .xpTraka i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#a689e0,var(--xp));border-radius:99px;transition:width .4s}
+
+  /* ============ SADRŽAJ ============ */
+  main{padding:14px 14px 8px;position:relative}
+  .tab{display:none}
+  .tab.aktivan{display:block;animation:ud .16s ease-out}
+  @keyframes ud{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2{font-size:14px;font-weight:800;color:#3d6b1e;letter-spacing:1.4px;text-transform:uppercase;margin:4px 2px 10px;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+
+  #uberiSveKuca{display:flex;justify-content:center;margin-bottom:10px;min-height:0}
+  #uberiSveKuca button{font-family:inherit;font-weight:800;font-size:13.5px;border:none;cursor:pointer;
+    color:#5a3c00;background:linear-gradient(#ffd76a,var(--zlato));border-radius:999px;padding:8px 18px;
+    box-shadow:0 3px 0 var(--zlato-t),0 5px 10px rgba(0,0,0,.2);animation:skoci 1.3s ease-in-out infinite}
+  #uberiSveKuca button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--zlato-t)}
+
+  .njive{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .parcela{position:relative;aspect-ratio:1/1.06;border-radius:14px;cursor:pointer;
+    background:linear-gradient(var(--zemlja),var(--zemlja-t) 70%);border:3px solid var(--zemlja-ivica);
+    box-shadow:inset 0 3px 6px rgba(255,255,255,.18),inset 0 -4px 8px rgba(0,0,0,.22),0 4px 8px rgba(0,0,0,.18);
+    overflow:visible;transition:transform .08s}
+  .parcela::before{content:'';position:absolute;inset:6px;border-radius:9px;
+    background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(0,0,0,.11) 9px 12px);pointer-events:none}
+  .parcela:active{transform:scale(.96)}
+  .parcela .biljka{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);width:76%;pointer-events:none;
+    filter:drop-shadow(0 4px 3px rgba(0,0,0,.28));transition:transform .3s}
+  .parcela .senkica{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);width:55%;height:9%;
+    background:radial-gradient(ellipse,rgba(0,0,0,.28),transparent 70%);border-radius:50%;pointer-events:none}
+  .parcela .info{position:absolute;left:8%;right:8%;bottom:6px;pointer-events:none}
+  .parcela .cd{font-size:10.5px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);text-align:center;font-variant-numeric:tabular-nums}
+  .parcela .traka{height:6px;border-radius:99px;background:rgba(0,0,0,.38);overflow:hidden;margin-top:2px}
+  .parcela .traka i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8ed063,var(--zeleno));transition:width .9s linear}
+  .parcela .zalij{position:absolute;top:5px;right:5px;width:19px;z-index:2;pointer-events:none;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));animation:skoci 1.7s ease-in-out infinite}
+  .parcela.prazna .plus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:800;color:rgba(255,246,227,.55)}
+  .parcela.zrelo{border-color:var(--zlato)}
+  .parcela.zrelo .biljka{animation:njise 1.4s ease-in-out infinite}
+  @keyframes njise{0%,100%{transform:translateX(-50%) rotate(-2.5deg)}50%{transform:translateX(-50%) rotate(2.5deg)}}
+  .parcela .uberi{position:absolute;top:-9px;left:50%;transform:translateX(-50%);z-index:3;
+    background:linear-gradient(#ffd76a,var(--zlato));border:2px solid var(--zlato-t);color:#5a3c00;
+    font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;box-shadow:0 2px 5px rgba(0,0,0,.3);
+    animation:skoci 1.1s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+  @keyframes skoci{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-4px)}}
+  #uberiSveKuca button{animation-name:skoci2}
+  @keyframes skoci2{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .parcela.zakljucana{background:linear-gradient(#9ccf60,#84b94a);border-color:#5f8f33}
+  .parcela.zakljucana::before{display:none}
+  .parcela.zakljucana .sadrzajz{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+  .parcela.zakljucana .znak{background:linear-gradient(var(--drvo-s),var(--drvo));border:2px solid var(--drvo-t);
+    border-radius:8px;color:#fff3dc;font-size:11px;font-weight:800;padding:3px 8px;box-shadow:0 2px 0 var(--drvo-t)}
+  .parcela.zakljucana .katanac{font-size:18px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+  .hint{position:absolute;z-index:6;top:-34px;left:4px;background:var(--papir);border:2.5px solid var(--drvo-s);
+    border-radius:11px;padding:5px 11px;font-size:12.5px;font-weight:800;box-shadow:0 3px 8px rgba(0,0,0,.25);
+    animation:skoci2 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+  .hint::after{content:'';position:absolute;bottom:-7px;left:22px;border:7px solid transparent;border-top-color:var(--drvo-s);border-bottom:none}
+  .kapFx{position:absolute;width:12px;z-index:4;pointer-events:none;animation:kapne .55s ease-in forwards}
+  @keyframes kapne{from{transform:translateY(-6px);opacity:1}to{transform:translateY(24px);opacity:0}}
+
+  /* kartice */
+  .kartica{background:var(--papir);border:3px solid var(--drvo-s);border-radius:16px;padding:13px;
+    box-shadow:0 3px 0 var(--drvo-t),0 6px 12px rgba(0,0,0,.16);margin-top:12px}
+  .kartica .red{display:flex;align-items:center;gap:12px}
+  .kartica .slika{width:58px;flex:none}
+  .kartica h3{font-size:16px;font-weight:800}
+  .kartica p{font-size:12.5px;color:var(--mastilo-b);line-height:1.35;font-weight:600}
+  .kartica.siva{filter:saturate(.35);opacity:.85}
+  .traka2{height:8px;border-radius:99px;background:#e5d6b4;overflow:hidden;margin-top:10px}
+  .traka2 i{display:block;height:100%;width:0;background:linear-gradient(90deg,#f0854e,var(--crveno));transition:width .9s linear}
+  .traka2.plava i{background:linear-gradient(90deg,#7cc4e8,var(--voda))}
+
+  .dugme{font-family:inherit;font-weight:800;font-size:15px;border:none;border-radius:13px;cursor:pointer;
+    padding:11px 16px;width:100%;margin-top:11px;color:#2c4a12;
+    background:linear-gradient(#a4d876,#7cbf4a);box-shadow:0 4px 0 var(--zeleno-t),0 6px 10px rgba(0,0,0,.18);
+    transition:transform .07s,box-shadow .07s,filter .15s}
+  .dugme:active{transform:translateY(3px);box-shadow:0 1px 0 var(--zeleno-t)}
+  .dugme:disabled{filter:grayscale(.75) brightness(.85);cursor:default}
+  .dugme.zlatno{color:#5a3c00;background:linear-gradient(#ffd76a,var(--zlato));box-shadow:0 4px 0 var(--zlato-t),0 6px 10px rgba(0,0,0,.18)}
+  .dugme.zlatno:active{box-shadow:0 1px 0 var(--zlato-t)}
+  .dugme.toplo{color:#fff2ea;background:linear-gradient(#f0854e,var(--crveno));box-shadow:0 4px 0 var(--crveno-t),0 6px 10px rgba(0,0,0,.18)}
+  .dugme.toplo:active{box-shadow:0 1px 0 var(--crveno-t)}
+  .dugme.tiho{color:var(--mastilo-b);background:var(--papir-t);box-shadow:0 3px 0 #d3bd93;font-size:13.5px;font-weight:700}
+
+  .roba{display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:2px dashed #e3d2ab}
+  .roba:last-child{border-bottom:none}
+  .roba .slicica{width:40px;flex:none}
+  .roba .info{flex:1;min-width:0}
+  .roba .info b{font-size:15px}
+  .roba .info span{display:block;font-size:11.5px;color:var(--mastilo-b);font-weight:700;font-variant-numeric:tabular-nums}
+  .roba .cena{text-align:right;font-variant-numeric:tabular-nums;line-height:1.15}
+  .roba .cena b{font-size:15px}
+  .roba .smer{font-size:10.5px;font-weight:800;display:block}
+  .smer.gore{color:var(--zeleno-t)}.smer.dole{color:var(--crveno)}
+  .roba .prodaj{font-family:inherit;font-weight:800;font-size:12.5px;border:none;cursor:pointer;border-radius:10px;
+    padding:9px 11px;color:#5a3c00;background:linear-gradient(#ffd76a,var(--zlato));box-shadow:0 3px 0 var(--zlato-t)}
+  .roba .prodaj:active{transform:translateY(2px);box-shadow:0 1px 0 var(--zlato-t)}
+
+  .musterija{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:22px;border:2.5px solid var(--drvo-s);flex:none;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+  .musterija b{font-size:15px;display:block}
+  .musterija span{font-size:11.5px;color:var(--mastilo-b);font-weight:700;font-style:italic}
+  .stavke{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px}
+  .stavka{display:flex;align-items:center;gap:5px;background:var(--papir-t);border:2px solid #e0cda1;
+    border-radius:10px;padding:4px 8px;font-weight:800;font-size:13px}
+  .stavka .slicica{width:24px}
+  .stavka.fali{border-color:var(--crveno);color:var(--crveno)}
+  .nagrada{display:flex;gap:12px;align-items:center;margin-top:7px;font-weight:800;font-size:14px}
+  .nagrada .xpp{color:var(--xp);font-size:13px}
+  .nagrada svg{width:17px;height:17px;vertical-align:-3px}
+  .odbij{background:none;border:none;font-family:inherit;color:var(--mastilo-b);font-weight:700;font-size:12px;
+    text-decoration:underline;cursor:pointer;padding:6px 2px 0}
+  .statRed{display:flex;justify-content:space-between;font-weight:800;font-size:14px;padding:7px 2px;border-bottom:2px dashed #e3d2ab}
+  .statRed:last-child{border-bottom:none}
+  .statRed span{color:var(--mastilo-b);font-weight:700}
+
+  nav{position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;justify-content:center;
+    padding:9px 12px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(var(--drvo-s),var(--drvo));border-top:3px solid var(--drvo-t);
+    box-shadow:0 -4px 12px rgba(0,0,0,.2)}
+  nav .unutra{display:flex;gap:7px;width:100%;max-width:452px;margin:0 auto}
+  nav button{flex:1;font-family:inherit;font-weight:800;font-size:11px;border:2.5px solid transparent;border-radius:13px;
+    padding:6px 2px 5px;background:transparent;color:#f3e2c2;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+  nav button .ikona{width:21px;height:21px;display:block}
+  nav button .ikona svg{width:100%;height:100%;display:block}
+  nav button.aktivan{background:var(--papir);color:var(--mastilo);border-color:var(--drvo-t);box-shadow:0 2px 0 var(--drvo-t)}
+  nav button .tacka{position:absolute;top:2px;right:16%;width:10px;height:10px;border-radius:50%;
+    background:var(--crveno);border:2px solid #fff3dc;display:none}
+  nav button .tacka.ima{display:block}
+
+  #veo{position:fixed;inset:0;z-index:40;background:rgba(40,25,10,.5);opacity:0;pointer-events:none;transition:opacity .18s}
+  #veo.otvoren{opacity:1;pointer-events:auto}
+  #list{position:fixed;left:0;right:0;bottom:0;z-index:41;max-width:480px;margin:0 auto;
+    background:var(--papir);border:3px solid var(--drvo-s);border-bottom:none;border-radius:22px 22px 0 0;
+    padding:15px 15px calc(16px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .22s ease;
+    max-height:78vh;overflow-y:auto}
+  #list.otvoren{transform:none}
+  #list h3{font-size:17px;font-weight:800;margin-bottom:4px}
+  .seme{width:100%;display:flex;align-items:center;gap:11px;text-align:left;font-family:inherit;cursor:pointer;
+    border:2.5px solid #e0cda1;background:#fffcf3;border-radius:14px;padding:9px 11px;margin-top:8px;color:var(--mastilo)}
+  .seme:active{background:var(--papir-t)}
+  .seme:disabled{opacity:.5}
+  .seme .slicica{width:44px;flex:none}
+  .seme .info{flex:1}
+  .seme .info b{font-size:15px}
+  .seme .info span{display:block;font-size:11.5px;color:var(--mastilo-b);font-weight:700}
+  .seme .kosta{font-weight:800;font-size:15px;white-space:nowrap;text-align:right;line-height:1.15}
+  .seme .kosta small{display:block;font-size:10.5px;color:var(--xp);font-weight:800}
+  .seme.zakljucano .kosta{color:var(--mastilo-b)}
+
+  #toast{position:fixed;left:50%;bottom:100px;transform:translate(-50%,14px);z-index:60;background:var(--papir);
+    border:3px solid var(--drvo-s);color:var(--mastilo);padding:10px 18px;border-radius:14px;font-weight:800;font-size:14px;
+    box-shadow:0 3px 0 var(--drvo-t),0 8px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+    max-width:86%;text-align:center}
+  #toast.vidljiv{opacity:1;transform:translate(-50%,0)}
+  .letac{position:fixed;z-index:70;pointer-events:none;width:20px;height:20px;will-change:transform;transition:transform .65s cubic-bezier(.4,-0.2,.7,.4),opacity .65s}
+  .plusxp{position:fixed;z-index:70;pointer-events:none;color:var(--xp);font-weight:800;font-size:15px;
+    text-shadow:0 1px 3px rgba(255,255,255,.8);animation:gorexp .9s ease-out forwards}
+  @keyframes gorexp{to{transform:translateY(-32px);opacity:0}}
+  #nivoVeo{position:fixed;inset:0;z-index:80;background:rgba(40,25,10,.55);display:none;align-items:center;justify-content:center;padding:24px}
+  #nivoVeo.otvoren{display:flex}
+  #nivoKartica{background:var(--papir);border:4px solid var(--zlato);border-radius:22px;padding:22px 20px;text-align:center;
+    max-width:320px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:pop .35s cubic-bezier(.2,1.6,.5,1)}
+  @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+  #nivoKartica .zvezda{font-size:44px}
+  #nivoKartica h3{font-size:23px;font-weight:800;margin:2px 0 6px}
+  #nivoKartica p{font-size:13.5px;color:var(--mastilo-b);font-weight:700;line-height:1.45}
+  .otkljucano{display:flex;justify-content:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .otkljucano .kockica{background:var(--papir-t);border:2.5px solid var(--zlato);border-radius:12px;padding:7px 9px;font-size:11.5px;font-weight:800;max-width:96px}
+  .otkljucano .kockica .slicica{width:38px;display:block;margin:0 auto 2px}
+  .spisak{margin-top:8px;text-align:left;display:inline-block}
+  .spisak div{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;padding:3px 0}
+  .spisak .slicica{width:26px;flex:none}
+  .konfeta{position:fixed;z-index:79;width:9px;height:12px;top:-14px;pointer-events:none;animation:pada linear forwards}
+  @keyframes pada{to{transform:translateY(110vh) rotate(560deg)}}
+
+  @media (max-width:359px){ .njive{grid-template-columns:repeat(2,1fr)} }
+  @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="scena">
+    <div class="sunce"></div>
+    <div class="oblak o1"></div>
+    <div class="oblak o2"></div>
+    <div class="brdo zadnje"></div>
+    <div class="brdo prednje"></div>
+    <svg class="ukras drvo2" viewBox="0 0 60 80"><rect x="26" y="46" width="8" height="30" rx="3" fill="#7c4e26"/><circle cx="30" cy="30" r="20" fill="#5f9e37"/><circle cx="17" cy="40" r="12" fill="#6fae44"/><circle cx="43" cy="40" r="12" fill="#6fae44"/></svg>
+    <svg class="ukras drvo1" viewBox="0 0 60 80"><rect x="26" y="46" width="8" height="30" rx="3" fill="#7c4e26"/><circle cx="30" cy="30" r="20" fill="#5f9e37"/><circle cx="17" cy="40" r="12" fill="#6fae44"/><circle cx="43" cy="40" r="12" fill="#6fae44"/></svg>
+    <svg class="ukras ambar" viewBox="0 0 120 90">
+      <rect x="28" y="42" width="64" height="42" rx="3" fill="#c94f35"/>
+      <polygon points="22,44 60,14 98,44" fill="#8f3b26"/>
+      <rect x="50" y="58" width="20" height="26" rx="2" fill="#7a2f1e"/>
+      <path d="M50 58 L70 84 M70 58 L50 84" stroke="#e8d8c6" stroke-width="2.5"/>
+      <rect x="49" y="57" width="22" height="28" rx="2" fill="none" stroke="#e8d8c6" stroke-width="2.5"/>
+      <circle cx="60" cy="32" r="6" fill="#f7ecd9" stroke="#8f3b26" stroke-width="2"/>
+    </svg>
+    <span class="scenaKoka" id="scenaKoka"></span>
+    <span class="scenaKrava" id="scenaKrava"></span>
+    <span class="leptir" id="leptir1"></span>
+    <span class="leptir l2" id="leptir2"></span>
+    <div id="hud">
+      <div class="tabla">Moj Salaš<small>prototip v0.3</small></div>
+      <div id="hudDesno">
+        <div class="pilula" id="novacPilula"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc53d" stroke="#d89a17" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#d89a17" stroke-width="1.6" opacity=".7"/></svg><span id="novac">0</span>&nbsp;din</div>
+        <div class="nivo" id="nivoPilula">Nv. <span id="nivoBr">1</span><div class="xpTraka"><i id="xpTraka"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="tab-farma" class="tab aktivan">
+      <div id="uberiSveKuca"></div>
+      <div class="njive" id="njive"></div>
+      <div id="zgradeKuca"></div>
+    </section>
+
+    <section id="tab-narudzbe" class="tab">
+      <h2>Tabla za narudžbine</h2>
+      <div id="narudzbeKuca"></div>
+      <p style="font-size:12px;color:#3d6b1e;font-weight:700;margin-top:10px;text-align:center">Isporuke donose više novca i XP nego pijaca 😉</p>
+    </section>
+
+    <section id="tab-pijaca" class="tab">
+      <h2>Tvoja tezga</h2>
+      <div class="kartica" style="margin-top:0" id="tezga"></div>
+      <p style="font-size:12px;color:#3d6b1e;font-weight:700;margin-top:10px;text-align:center">Cene se menjaju tokom dana — ▲ prodaj, ▼ sačekaj.</p>
+    </section>
+
+    <section id="tab-radnja" class="tab">
+      <h2>Zgrade i oprema</h2>
+      <div id="radnjaKuca"></div>
+      <h2 style="margin-top:16px">Statistika</h2>
+      <div class="kartica" style="margin-top:0" id="statKuca"></div>
+      <h2 style="margin-top:16px">Podešavanja</h2>
+      <div class="kartica" style="margin-top:0">
+        <button class="dugme tiho" id="zvukDugme" style="margin-top:0">Zvuk: uključen</button>
+        <button class="dugme tiho" id="resetDugme">Obriši napredak i počni ispočetka</button>
+      </div>
+    </section>
+  </main>
+
+  <nav><div class="unutra">
+    <button data-tab="farma" class="aktivan"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 14C8 14 5 11 5 7c4 0 7 3 7 7z"/><path d="M12 12c4 0 7-3 7-7-4 0-7 3-7 7z"/></svg></span>Farma<span class="tacka" id="tackaFarma"></span></button>
+    <button data-tab="narudzbe"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>Narudžbine<span class="tacka" id="tackaNar"></span></button>
+    <button data-tab="pijaca"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.8 9a2 2 0 0 1-2 1.6H7.8a2 2 0 0 1-2-1.6L4 10z"/><path d="M8.5 10L12 4l3.5 6"/><path d="M9 14v3M12 14v3M15 14v3"/></svg></span>Pijaca<span class="tacka" id="tackaPij"></span></button>
+    <button data-tab="radnja"><span class="ikona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M3.5 4.5h2.4l2.3 10.4a1.6 1.6 0 0 0 1.6 1.3h7.4a1.6 1.6 0 0 0 1.6-1.2L20.5 8H7"/></svg></span>Radnja<span class="tacka" id="tackaRad"></span></button>
+  </div></nav>
+</div>
+
+<div id="veo"></div>
+<div id="list"><h3>Šta sadiš?</h3><div id="semena"></div></div>
+<div id="toast"></div>
+<div id="nivoVeo"><div id="nivoKartica"></div></div>
+
+<script>
+/* ================================================================
+   GRAFIKA
+================================================================ */
+const SV = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">';
+const SEN = '<ellipse cx="32" cy="57" rx="17" ry="4.5" fill="rgba(0,0,0,.15)"/>';
+const KLICA = SV + SEN +
+  '<path d="M32 57V41" stroke="#4e8f2f" stroke-width="4" stroke-linecap="round" fill="none"/>' +
+  '<path d="M32 45 C 25 46 20 42 19 35 C 26 34 31 38 32 45 Z" fill="#6dbb43"/>' +
+  '<path d="M32 41 C 39 42 44 38 45 31 C 38 30 33 34 32 41 Z" fill="#8ed063"/></svg>';
+
+function klas(x,y){
+  let s=''; [[0,8],[-4,4],[4,4],[-4,-2],[4,-2],[0,-6]].forEach(p=>{
+    s+='<ellipse cx="'+(x+p[0])+'" cy="'+(y+p[1])+'" rx="3.1" ry="4.8"/>'; });
+  return s;
+}
+function grozd(x,y){
+  let s=''; [[0,0],[-4,5],[4,5],[-2,10],[2,10],[0,15]].forEach((p,i)=>{
+    s+='<circle cx="'+(x+p[0])+'" cy="'+(y+p[1])+'" r="3.4" fill="'+(i===1||i===4?'#9b6fc4':'#7e4fa8')+'" stroke="#5e3a80" stroke-width=".8"/>'; });
+  return s;
+}
+const KOKA_G =
+  '<path d="M33 23 q8 -5 6 4 l-6 1z" fill="#f7f2e6" stroke="#d8cbb4" stroke-width="1.4"/>'+
+  '<ellipse cx="24" cy="28" rx="12" ry="9.5" fill="#fdfaf0" stroke="#d8cbb4" stroke-width="1.5"/>'+
+  '<circle cx="13" cy="19" r="6" fill="#fdfaf0" stroke="#d8cbb4" stroke-width="1.5"/>'+
+  '<path d="M10 13 q2 -4 4 -0.5 q2 -3.5 4 0.5 l-8 1z" fill="#e8402a"/>'+
+  '<path d="M7.5 18 l-5 2 5 2z" fill="#f0921e"/>'+
+  '<circle cx="13.5" cy="17.6" r="1.2" fill="#3a3a3a"/>'+
+  '<path d="M20 37v5m2 0h-4M28 37v5m2 0h-4" stroke="#f0921e" stroke-width="2" stroke-linecap="round" fill="none"/>';
+const KRAVA_G =
+  '<path d="M12 30 q-5 1 -4 7 l3-1" fill="none" stroke="#d8cbb4" stroke-width="2.4" stroke-linecap="round"/>'+
+  '<rect x="12" y="22" width="38" height="20" rx="10" fill="#fdfaf4" stroke="#cfc4b0" stroke-width="1.6"/>'+
+  '<path d="M22 24 q6 -2 8 3 q-1 6 -8 5 q-4 -4 0 -8z" fill="#4a4a4a"/>'+
+  '<path d="M38 34 q5 -1 6 4 q-3 4 -7 2 q-2 -4 1 -6z" fill="#4a4a4a"/>'+
+  '<rect x="46" y="14" width="15" height="14" rx="6" fill="#fdfaf4" stroke="#cfc4b0" stroke-width="1.6"/>'+
+  '<ellipse cx="45" cy="16" rx="3.4" ry="2.2" fill="#e8d9c2" stroke="#cfc4b0"/>'+
+  '<ellipse cx="62" cy="16" rx="3.4" ry="2.2" fill="#e8d9c2" stroke="#cfc4b0"/>'+
+  '<rect x="48" y="22" width="12" height="7.5" rx="3.7" fill="#f2b8c6" stroke="#d493a6" stroke-width="1.2"/>'+
+  '<circle cx="51.5" cy="25.8" r="1" fill="#a56"/><circle cx="56.5" cy="25.8" r="1" fill="#a56"/>'+
+  '<circle cx="51" cy="19" r="1.3" fill="#3a3a3a"/>'+
+  '<path d="M18 42v9M27 42v9M39 42v9M47 42v9" stroke="#e8e0d0" stroke-width="4" stroke-linecap="round"/>'+
+  '<path d="M18 50v2M27 50v2M39 50v2M47 50v2" stroke="#8a7a5e" stroke-width="4" stroke-linecap="round"/>';
+const ART = {
+  psenica2: SV+SEN+'<g stroke="#5aa633" stroke-width="3" stroke-linecap="round" fill="none">'+
+    '<path d="M22 57V36"/><path d="M32 57V30"/><path d="M42 57V36"/>'+
+    '<path d="M22 46C17 44 15 40 15 36"/><path d="M32 42C27 40 25 36 25 32"/><path d="M42 46C47 44 49 40 49 36"/></g></svg>',
+  psenica3: SV+SEN+'<g stroke="#d9a93c" stroke-width="3" stroke-linecap="round" fill="none">'+
+    '<path d="M20 57V32"/><path d="M32 57V24"/><path d="M44 57V32"/></g>'+
+    '<g fill="#f2c94c" stroke="#c9952e" stroke-width="1">'+klas(20,22)+klas(32,14)+klas(44,22)+'</g></svg>',
+  sargarepa2: SV+SEN+'<g stroke="#4e8f2f" stroke-width="3" stroke-linecap="round" fill="none">'+
+    '<path d="M32 57C32 48 29 43 25 38"/><path d="M32 57C32 46 35 41 39 36"/><path d="M32 57C32 46 32 40 32 34"/>'+
+    '<path d="M25 44l-4-2"/><path d="M39 42l4-2"/><path d="M32 40l-3-3"/></g></svg>',
+  sargarepa3: SV+SEN+'<g stroke="#4e8f2f" stroke-width="3.4" stroke-linecap="round" fill="none">'+
+    '<path d="M32 46C31 38 27 32 22 27"/><path d="M32 46C33 36 37 31 42 26"/><path d="M32 46C32 35 32 29 32 22"/>'+
+    '<path d="M24 34l-5-2"/><path d="M40 32l5-3"/><path d="M32 30l-4-3"/><path d="M32 26l4-3"/></g>'+
+    '<path d="M25 46 C25 42 39 42 39 46 L36 59 C35 62.5 29 62.5 28 59 Z" fill="#f5820d" stroke="#d96c08" stroke-width="1.6"/>'+
+    '<path d="M27 50h10M28 54h8" stroke="#d96c08" stroke-width="1.4" stroke-linecap="round"/></svg>',
+  paprika2: SV+SEN+'<path d="M32 52V42" stroke="#3e7a25" stroke-width="3.4" stroke-linecap="round"/>'+
+    '<ellipse cx="32" cy="43" rx="13" ry="9" fill="#4e8f2f"/>'+
+    '<ellipse cx="25" cy="40" rx="8.5" ry="7" fill="#6dbb43"/><ellipse cx="39" cy="40" rx="8.5" ry="7" fill="#6dbb43"/></svg>',
+  paprika3: SV+SEN+'<path d="M32 56V44" stroke="#3e7a25" stroke-width="3.6" stroke-linecap="round"/>'+
+    '<ellipse cx="32" cy="36" rx="17" ry="12" fill="#4e8f2f"/>'+
+    '<ellipse cx="23" cy="32" rx="10" ry="8" fill="#6dbb43"/><ellipse cx="41" cy="32" rx="10" ry="8" fill="#6dbb43"/>'+
+    '<g><path d="M22 40v-4M32 44v-4M42 40v-4" stroke="#3e7a25" stroke-width="2.4" stroke-linecap="round"/>'+
+    '<rect x="18" y="40" width="8" height="13" rx="4" fill="#e8402a" stroke="#c22b18" stroke-width="1.4"/>'+
+    '<rect x="28" y="44" width="8" height="13" rx="4" fill="#e8402a" stroke="#c22b18" stroke-width="1.4"/>'+
+    '<rect x="38" y="40" width="8" height="13" rx="4" fill="#e8402a" stroke="#c22b18" stroke-width="1.4"/></g></svg>',
+  bundeva2: SV+SEN+'<path d="M14 56C24 49 40 49 50 55" stroke="#4e8f2f" stroke-width="3" stroke-linecap="round" fill="none"/>'+
+    '<path d="M22 52 C 16 52 13 48 12 44 C 18 43 22 47 22 52 Z" fill="#6dbb43"/>'+
+    '<circle cx="40" cy="50" r="6.5" fill="#7fbf4d" stroke="#4e8f2f" stroke-width="1.6"/></svg>',
+  bundeva3: SV+SEN+'<path d="M32 32c0-5 3-7 8-8" stroke="#5e8f2f" stroke-width="4" stroke-linecap="round" fill="none"/>'+
+    '<path d="M40 26 C 46 24 51 26 53 31 C 47 33 42 31 40 26 Z" fill="#6dbb43"/>'+
+    '<ellipse cx="32" cy="45" rx="18" ry="13.5" fill="#f08c1b" stroke="#c56a0c" stroke-width="1.6"/>'+
+    '<ellipse cx="32" cy="45" rx="7" ry="13.5" fill="#ffa53c" stroke="#c56a0c" stroke-width="1.2"/>'+
+    '<path d="M22 34.5c-3 6-3 15 0 21M42 34.5c3 6 3 15 0 21" stroke="#c56a0c" stroke-width="1.4" fill="none"/></svg>',
+  grozdje2: SV+SEN+'<rect x="15" y="24" width="4.5" height="33" rx="2" fill="#8b5e34"/>'+
+    '<rect x="44.5" y="24" width="4.5" height="33" rx="2" fill="#8b5e34"/>'+
+    '<path d="M17 30H47" stroke="#6e4a28" stroke-width="2.2"/>'+
+    '<path d="M18 56C26 46 38 44 46 32" stroke="#4e8f2f" stroke-width="3" stroke-linecap="round" fill="none"/>'+
+    '<path d="M28 47 C 23 46 21 42 21 38 C 26 39 28 43 28 47 Z" fill="#6dbb43"/></svg>',
+  grozdje3: SV+SEN+'<rect x="15" y="24" width="4.5" height="33" rx="2" fill="#8b5e34"/>'+
+    '<rect x="44.5" y="24" width="4.5" height="33" rx="2" fill="#8b5e34"/>'+
+    '<path d="M17 30H47" stroke="#6e4a28" stroke-width="2.2"/>'+
+    '<path d="M18 56C26 46 38 44 46 30" stroke="#4e8f2f" stroke-width="3.2" stroke-linecap="round" fill="none"/>'+
+    '<path d="M26 42 C 21 41 19 37 19 33 C 24 34 26 38 26 42 Z" fill="#6dbb43"/>'+
+    '<path d="M40 36 C 45 35 47 31 47 27 C 42 28 40 32 40 36 Z" fill="#6dbb43"/>'+
+    grozd(25,42)+grozd(41,36)+'</svg>',
+  ajvar: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'+
+    '<rect x="13" y="17" width="22" height="26" rx="6" fill="#c93a22" stroke="#a32a16" stroke-width="1.6"/>'+
+    '<path d="M18 22v14" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/>'+
+    '<rect x="11" y="10" width="26" height="9" rx="3.5" fill="#e0a32e" stroke="#b27f1d" stroke-width="1.6"/></svg>',
+  brasno: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="M15 17 C15 11 33 11 33 17 L36 35 C37 42 11 42 12 35 Z" fill="#efdcb4" stroke="#c8a86e" stroke-width="1.6"/>'+
+    '<circle cx="24" cy="12.5" r="3" fill="#d9bd8a" stroke="#c8a86e" stroke-width="1.2"/>'+
+    '<path d="M15.5 23h17M15 29h18" stroke="#c8a86e" stroke-width="1.4" stroke-dasharray="2 3"/>'+
+    '<ellipse cx="21" cy="33" rx="2.2" ry="3.4" fill="#d9a93c" opacity=".8"/>'+
+    '<ellipse cx="27" cy="33" rx="2.2" ry="3.4" fill="#d9a93c" opacity=".8"/></svg>',
+  jaje: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="M24 8 C31 15 36 22 36 29 a12 12 0 0 1-24 0 C12 22 17 15 24 8z" fill="#fff6e4" stroke="#e0c9a0" stroke-width="1.6"/>'+
+    '<ellipse cx="20" cy="20" rx="3" ry="5" fill="#fff" opacity=".85"/></svg>',
+  mleko: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="M14 18 C14 15 34 15 34 18 V38 C34 43 14 43 14 38 Z" fill="#d7dee4" stroke="#9aa6b0" stroke-width="1.6"/>'+
+    '<ellipse cx="24" cy="18" rx="10" ry="3.2" fill="#eef2f5" stroke="#9aa6b0" stroke-width="1.4"/>'+
+    '<path d="M19 13.5 q5 -6 10 0" stroke="#9aa6b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>'+
+    '<path d="M14 27 C14 30 34 30 34 27" stroke="#9aa6b0" stroke-width="1.4" fill="none"/>'+
+    '<path d="M18 22v12" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".7"/></svg>',
+  kazan: '<svg viewBox="0 0 72 64" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="M28 58l-8 4M44 58l8 4M36 58v5" stroke="#7c4e26" stroke-width="3.4" stroke-linecap="round"/>'+
+    '<path d="M26 61q5-9 10-1q5-9 10 1" fill="#f59b1e"/><path d="M30 61q4-6 6 0q3-6 6 0" fill="#ffce54"/>'+
+    '<path d="M14 26h44c0 18-9 28-22 28S14 44 14 26z" fill="#3a3f46" stroke="#23272c" stroke-width="1.6"/>'+
+    '<rect x="10" y="21" width="52" height="9" rx="4.5" fill="#4a505a" stroke="#23272c" stroke-width="1.6"/>'+
+    '<ellipse cx="36" cy="25.5" rx="21" ry="3.6" fill="#d64b27"/>'+
+    '<path d="M28 14q3-4 0-8M40 16q3-4 0-8" stroke="#b9c2cc" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".8"/></svg>',
+  mlin: '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="M24 27 L40 27 L44 58 L20 58 Z" fill="#e3cfa8" stroke="#b99e6f" stroke-width="1.6"/>'+
+    '<path d="M19 27 L32 15 L45 27 Z" fill="#c94f35" stroke="#8f3b26" stroke-width="1.4"/>'+
+    '<rect x="28" y="46" width="8" height="12" rx="3" fill="#7a4f28"/>'+
+    '<circle cx="32" cy="36" r="2.6" fill="#7c4e26"/>'+
+    '<g class="krila"><g stroke="#e9dcc0" stroke-width="6" stroke-linecap="round">'+
+    '<path d="M32 31 L49 15"/><path d="M32 31 L15 15"/><path d="M32 31 L15 47"/><path d="M32 31 L49 47"/></g>'+
+    '<g stroke="#8b5e34" stroke-width="2.4" stroke-linecap="round">'+
+    '<path d="M32 31 L50 14"/><path d="M32 31 L14 14"/><path d="M32 31 L14 48"/><path d="M32 31 L50 48"/></g>'+
+    '<circle cx="32" cy="31" r="3.2" fill="#5c3a1c"/></g></svg>',
+  kokosinjac: '<svg viewBox="0 0 72 64" xmlns="http://www.w3.org/2000/svg">'+
+    '<rect x="12" y="26" width="38" height="26" rx="3" fill="#c98246" stroke="#8a5a2b" stroke-width="1.6"/>'+
+    '<polygon points="8,28 31,11 54,28" fill="#8f3b26" stroke="#6e2c1c" stroke-width="1.4"/>'+
+    '<rect x="25" y="36" width="12" height="16" rx="6" fill="#5e3a1c"/>'+
+    '<polygon points="25,52 37,52 45,62 17,62" fill="#a9713f" stroke="#7c4e26" stroke-width="1.4"/>'+
+    '<circle cx="31" cy="30" r="3" fill="#f7ecd9" stroke="#6e2c1c" stroke-width="1.4"/>'+
+    '<g transform="translate(46,16) scale(.56)">'+KOKA_G+'</g></svg>',
+  stala: '<svg viewBox="0 0 72 64" xmlns="http://www.w3.org/2000/svg"><g transform="translate(4,6)">'+KRAVA_G+'</g></svg>',
+  kap: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'+
+    '<path d="M12 3 C7.5 10 5 13 5 16 a7 7 0 0 0 14 0 c0-3-2.5-6-7-13z" fill="#4aa8d8" stroke="#2f83b0" stroke-width="1.4"/>'+
+    '<circle cx="9.5" cy="15.5" r="1.7" fill="#bfe5f7"/></svg>',
+  novcic: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#ffc53d" stroke="#d89a17" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#d89a17" stroke-width="1.6" opacity=".7"/></svg>',
+  katanac: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="20" width="28" height="22" rx="6" fill="#e0a32e" stroke="#b27f1d" stroke-width="2"/><path d="M16 20v-4a8 8 0 0 1 16 0v4" fill="none" stroke="#8a6a45" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="30" r="3.4" fill="#8a5b12"/></svg>',
+  poklon: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="18" width="32" height="24" rx="4" fill="#e8542f" stroke="#c23a1a" stroke-width="1.8"/><rect x="6" y="12" width="36" height="9" rx="3" fill="#f0854e" stroke="#c23a1a" stroke-width="1.8"/><path d="M24 12v30" stroke="#ffd76a" stroke-width="5"/><path d="M24 12 C18 4 8 8 16 12 M24 12 C30 4 40 8 32 12" fill="none" stroke="#ffd76a" stroke-width="4" stroke-linecap="round"/></svg>',
+  leptir: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">'+
+    '<g class="krL"><path d="M15 15 C5 4 0 13 8 20 C2 25 9 30 15 22 Z" fill="#f2a03c" stroke="#c97b1e" stroke-width="1.2"/>'+
+    '<circle cx="8" cy="14" r="1.6" fill="#fff" opacity=".7"/></g>'+
+    '<g class="krD"><path d="M17 15 C27 4 32 13 24 20 C30 25 23 30 17 22 Z" fill="#f2a03c" stroke="#c97b1e" stroke-width="1.2"/>'+
+    '<circle cx="24" cy="14" r="1.6" fill="#fff" opacity=".7"/></g>'+
+    '<ellipse cx="16" cy="19" rx="2" ry="6.5" fill="#5a4632"/>'+
+    '<path d="M15 13 q-2 -4 -4 -5 M17 13 q2 -4 4 -5" stroke="#5a4632" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>',
+  koka: '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'+KOKA_G+'</svg>',
+  krava: '<svg viewBox="0 0 66 56" xmlns="http://www.w3.org/2000/svg">'+KRAVA_G+'</svg>'
+};
+
+/* ================================================================
+   PODACI
+================================================================ */
+const KULTURE = {
+  psenica:  { naziv:'Pšenica',   seme:10,  vreme:20,   cena:18,   xp:2,   nivo:1 },
+  sargarepa:{ naziv:'Šargarepa', seme:30,  vreme:90,   cena:62,   xp:5,   nivo:1 },
+  paprika:  { naziv:'Paprika',   seme:80,  vreme:300,  cena:185,  xp:12,  nivo:2 },
+  bundeva:  { naziv:'Bundeva',   seme:200, vreme:1800, cena:900,  xp:40,  nivo:3 },
+  grozdje:  { naziv:'Grožđe',    seme:450, vreme:7200, cena:2300, xp:110, nivo:4 },
+};
+const REDOSLED = ['psenica','sargarepa','paprika','bundeva','grozdje'];
+const PROIZVODI = {
+  brasno:{ naziv:'Brašno', cena:120 },
+  ajvar: { naziv:'Ajvar',  cena:780 },
+  jaje:  { naziv:'Jaja',   cena:45  },
+  mleko: { naziv:'Mleko',  cena:260 },
+};
+const MASINE = {
+  mlin: { naziv:'Mlin', cena:350, nivo:2, ulazK:'psenica', ulazN:4, izlaz:'brasno', vreme:90,  xp:8,
+          opis:'Melje 4 pšenice u džak brašna.', akcija:'Samelji brašno — 4× pšenica → 1 džak', gotovo:'Brašno je samleveno!' },
+  kazan:{ naziv:'Kazan za ajvar', cena:600, nivo:3, ulazK:'paprika', ulazN:3, izlaz:'ajvar', vreme:240, xp:25,
+          opis:'Pretvara 3 paprike u teglu ajvara.', akcija:'Skuvaj ajvar — 3× paprika → 1 tegla', gotovo:'Ajvar je gotov!' },
+};
+const ZIV = {
+  kokosinjac:{ naziv:'Kokošinjac', cena:900,  nivo:3, proizvod:'jaje',  interval:180, kap:4, xpPo:1,
+               opis:'Koke nose jaja same od sebe — samo ih pokupi.' },
+  stala:     { naziv:'Štala',      cena:2600, nivo:5, proizvod:'mleko', interval:600, kap:3, xpPo:6,
+               opis:'Krava daje mleko na svakih 10 minuta.' },
+};
+const SVE_CENE = {};
+REDOSLED.forEach(k=>SVE_CENE[k]={naziv:KULTURE[k].naziv,cena:KULTURE[k].cena});
+for(const k in PROIZVODI) SVE_CENE[k]=PROIZVODI[k];
+const SVI_KLJUCEVI = Object.keys(SVE_CENE);
+const MUSTERIJE = [
+  { ime:'Baka Mira', emoji:'👵', boja:'#ffe0e6', poruke:['Za unučiće spremam ručak…','Treba mi za zimnicu, sine.'] },
+  { ime:'Pekara „Zrno“', emoji:'🥖', boja:'#ffeccc', poruke:['Peć je već vruća!','Jutarnja tura kreće u pet.'] },
+  { ime:'Kafana „Kod Žike“', emoji:'🍺', boja:'#fff3c4', poruke:['Večeras je puna kafana.','Gosti traže domaće!'] },
+  { ime:'Piljar Pera', emoji:'🧢', boja:'#d9f0ff', poruke:['Tezga mi je poluprazna…','Plaćam odmah, kao i uvek.'] },
+  { ime:'Resto „Šumadija“', emoji:'🍽️', boja:'#e4f5d8', poruke:['Šef kuhinje je izričit.','Samo sveže, molim.'] },
+];
+const MAX_PARCELA = 9;
+function ikonica(k){ return KULTURE[k] ? ART[k+'3'] : ART[k]; }
+function cenaParcele(n){ return Math.round(150*Math.pow(2.2,n-2)/10)*10; }
+function xpZaNivo(l){ return Math.round(30*Math.pow(1.9,l-1)); }
+function nivoIzXp(xp){ let l=1; while(xp>=xpZaNivo(l)&&l<20){ xp-=xpZaNivo(l); l++; } return {lvl:l,u:xp,do:xpZaNivo(l)}; }
+
+/* ================================================================
+   STANJE + SKLADIŠTE (+ migracija starog sejva)
+================================================================ */
+const POCETNO = () => ({
+  v:3, novac:50, xp:0,
+  parcele:[{c:null,t:0,z:false},{c:null,t:0,z:false}],
+  mag:{psenica:0,sargarepa:0,paprika:0,bundeva:0,grozdje:0,brasno:0,ajvar:0,jaje:0,mleko:0},
+  masine:{mlin:{k:false,t:0},kazan:{k:false,t:0}},
+  ziv:{kokosinjac:{k:false,t:0},stala:{k:false,t:0}},
+  narudzbe:[], mute:false, sadio:false,
+  stat:{ubrano:0,zaradjeno:0,isporuke:0},
+  poklonDan:'', videno:Date.now()
+});
+let S = POCETNO(), izabrana = -1;
+const KLJUC = 'moja-farma-v2';
+const imaStorage = typeof window.storage?.get === 'function';
+let cuvT = null;
+async function ucitaj(){
+  if(!imaStorage) return;
+  try{
+    const r = await window.storage.get(KLJUC);
+    if(!r?.value) return;
+    const p = JSON.parse(r.value);
+    if(!p || (p.v!==2 && p.v!==3)) return;
+    const d = POCETNO();
+    S = {...d, ...p};
+    S.mag = {...d.mag, ...(p.mag||{})};
+    S.stat = {...d.stat, ...(p.stat||{})};
+    S.masine = { mlin:{...d.masine.mlin, ...(p.masine&&p.masine.mlin||{})},
+                 kazan:{...d.masine.kazan, ...(p.masine&&p.masine.kazan||{})} };
+    S.ziv = { kokosinjac:{...d.ziv.kokosinjac, ...(p.ziv&&p.ziv.kokosinjac||{})},
+              stala:{...d.ziv.stala, ...(p.ziv&&p.ziv.stala||{})} };
+    S.parcele = (Array.isArray(p.parcele)&&p.parcele.length?p.parcele:d.parcele)
+      .map(x=>({c:x.c||null, t:x.t||0, z:!!x.z}));
+    S.narudzbe = Array.isArray(p.narudzbe)?p.narudzbe:[];
+    if(p.v===2){ S.masine.kazan.k = !!p.kazan; S.masine.kazan.t = p.kazanT||0; }
+    S.v = 3;
+  }catch(e){}
+}
+function sacuvaj(odmah){
+  S.videno = Date.now();
+  if(!imaStorage) return;
+  clearTimeout(cuvT);
+  const w = async()=>{ try{ await window.storage.set(KLJUC, JSON.stringify(S)); }catch(e){} };
+  odmah ? w() : (cuvT = setTimeout(w, 1200));
+}
+document.addEventListener('visibilitychange', ()=>{ if(document.hidden) sacuvaj(true); });
+
+/* ================================================================
+   POMOĆNE + ZVUK + EFEKTI
+================================================================ */
+const $ = s => document.querySelector(s);
+const fmt = n => Math.round(n).toLocaleString('sr-RS');
+const sad = () => Date.now();
+function trzisnaCena(k){
+  const baza = SVE_CENE[k].cena;
+  const idx = SVI_KLJUCEVI.indexOf(k);
+  const m = 1 + 0.15*Math.sin(sad()/600000*Math.PI*2 + idx*1.7);
+  return { cena: Math.max(1, Math.round(baza*m)), smer: m>=1.02?1:(m<=0.98?-1:0) };
+}
+function vremeTxt(s){ s=Math.max(0,Math.ceil(s));
+  if(s>=3600) return Math.floor(s/3600)+'h '+Math.floor(s%3600/60)+'m';
+  if(s>=60) return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  return s+'s'; }
+function trajanjeTxt(s){ if(s>=3600) return (s/3600)+' h'; if(s>=60) return (s/60)+' min'; return s+' s'; }
+let toastT=null;
+function toast(t){ const e=$('#toast'); e.textContent=t; e.classList.add('vidljiv');
+  clearTimeout(toastT); toastT=setTimeout(()=>e.classList.remove('vidljiv'),2300); }
+function vibro(ms){ try{ navigator.vibrate && navigator.vibrate(ms); }catch(e){} }
+
+let AC=null;
+function ton(f,t,tip,gl,kad){ const o=AC.createOscillator(),g=AC.createGain();
+  o.type=tip||'triangle'; o.frequency.value=f; o.connect(g); g.connect(AC.destination);
+  const s=AC.currentTime+(kad||0); g.gain.setValueAtTime(0.0001,s);
+  g.gain.exponentialRampToValueAtTime(gl||.12,s+.012); g.gain.exponentialRampToValueAtTime(.0001,s+t);
+  o.start(s); o.stop(s+t+.02); }
+function zvuk(v){
+  if(S.mute) return;
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    if(AC.state==='suspended') AC.resume();
+    if(v==='tap') ton(660,.06);
+    else if(v==='sadnja'){ ton(520,.07); ton(392,.09,'triangle',.1,.06); }
+    else if(v==='voda'){ ton(880,.06,'sine',.09); ton(640,.09,'sine',.08,.07); }
+    else if(v==='zetva'){ ton(523,.07); ton(659,.07,'triangle',.12,.06); ton(784,.1,'triangle',.12,.12); }
+    else if(v==='novac'){ ton(1175,.05,'square',.06); ton(1568,.07,'square',.05,.05); }
+    else if(v==='nivo'){ [392,523,659,784].forEach((f,i)=>ton(f,.14,'triangle',.14,i*.09)); }
+    else if(v==='greska') ton(170,.13,'sawtooth',.08);
+  }catch(e){}
+}
+function letiNovcic(izEl, broj){
+  const cilj = $('#novacPilula').getBoundingClientRect();
+  const iz = (izEl||document.body).getBoundingClientRect();
+  for(let i=0;i<Math.min(broj,6);i++){
+    const c = document.createElement('div'); c.className='letac'; c.innerHTML = ART.novcic;
+    const x0 = iz.left+iz.width/2-10+(Math.random()*36-18), y0 = iz.top+iz.height/2-10+(Math.random()*20-10);
+    c.style.left=x0+'px'; c.style.top=y0+'px';
+    document.body.appendChild(c);
+    requestAnimationFrame(()=>{ requestAnimationFrame(()=>{
+      c.style.transform='translate('+(cilj.left+cilj.width/2-10-x0)+'px,'+(cilj.top+cilj.height/2-10-y0)+'px) scale(.55)';
+      c.style.opacity='.15';
+    });});
+    setTimeout(()=>c.remove(), 700+i*40);
+  }
+  setTimeout(()=>zvuk('novac'), 480);
+}
+function plusXp(izEl, xp){
+  const iz = (izEl||document.body).getBoundingClientRect();
+  const p = document.createElement('div'); p.className='plusxp'; p.textContent='+'+xp+' XP';
+  p.style.left=(iz.left+iz.width/2-20)+'px'; p.style.top=(iz.top-6)+'px';
+  document.body.appendChild(p); setTimeout(()=>p.remove(),900);
+}
+function kapFx(el){
+  for(let i=0;i<3;i++){
+    const k=document.createElement('span'); k.className='kapFx'; k.innerHTML=ART.kap;
+    k.style.left=(22+Math.random()*46)+'%'; k.style.top=(14+Math.random()*20)+'%';
+    k.style.animationDelay=(i*.09)+'s';
+    el.appendChild(k); setTimeout(()=>k.remove(),800);
+  }
+}
+function konfete(){
+  const boje=['#ffc53d','#e8542f','#7cbf4a','#8a63d2','#4aa8d8'];
+  for(let i=0;i<26;i++){
+    const k=document.createElement('div'); k.className='konfeta';
+    k.style.left=(Math.random()*100)+'vw'; k.style.background=boje[i%boje.length];
+    k.style.animationDuration=(1.4+Math.random()*1.2)+'s'; k.style.animationDelay=(Math.random()*.4)+'s';
+    document.body.appendChild(k); setTimeout(()=>k.remove(),3200);
+  }
+}
+function nestoRaste(){
+  return S.parcele.some(p=>p.c) ||
+    Object.values(S.masine).some(m=>m.t>0) ||
+    Object.values(S.ziv).some(z=>z.k);
+}
+function magPrazan(){ return Object.values(S.mag).every(v=>v===0); }
+function zivSpremno(id, ts){
+  const z=S.ziv[id]; if(!z.k) return 0;
+  return Math.min(ZIV[id].kap, Math.floor(((ts||sad())-z.t)/(ZIV[id].interval*1000)));
+}
+
+/* novac sa animacijom brojanja */
+let novacPrikaz = 0, novacAnim = null;
+function crtajNovac(){
+  const cilj = S.novac;
+  cancelAnimationFrame(novacAnim);
+  const start = novacPrikaz, t0 = performance.now(), tr = 350;
+  const korak = tt => {
+    const u = Math.min(1,(tt-t0)/tr);
+    novacPrikaz = start + (cilj-start)*(1-Math.pow(1-u,3));
+    $('#novac').textContent = fmt(novacPrikaz);
+    if(u<1) novacAnim = requestAnimationFrame(korak); else novacPrikaz = cilj;
+  };
+  novacAnim = requestAnimationFrame(korak);
+}
+
+/* red overlay kartica (nivo, poklon, povratak) */
+const overlayRed = [];
+function uRed(html, cb){
+  overlayRed.push({html,cb});
+  if(!$('#nivoVeo').classList.contains('otvoren')) sledeciOverlay();
+}
+function sledeciOverlay(){
+  const x = overlayRed.shift();
+  if(!x){ $('#nivoVeo').classList.remove('otvoren'); return; }
+  $('#nivoKartica').innerHTML = x.html;
+  $('#nivoVeo').classList.add('otvoren');
+  const ok = $('#nivoOk');
+  if(ok) ok.onclick = ()=>{ zvuk('tap'); x.cb && x.cb(); sledeciOverlay(); };
+}
+
+/* ================================================================
+   XP / NIVOI
+================================================================ */
+let prosliNivo = 1;
+function dodajXp(n, izEl){
+  S.xp += n;
+  if(izEl) plusXp(izEl, n);
+  const {lvl} = nivoIzXp(S.xp);
+  crtajNivo();
+  while(lvl > prosliNivo){ prosliNivo++; prikaziNivo(prosliNivo); }
+}
+function prikaziNivo(lvl){
+  const bonus = lvl*40;
+  S.novac += bonus;
+  let otklj = REDOSLED.filter(k=>KULTURE[k].nivo===lvl)
+    .map(k=>'<div class="kockica"><span class="slicica">'+ikonica(k)+'</span>'+KULTURE[k].naziv+'</div>');
+  for(const id in MASINE) if(MASINE[id].nivo===lvl)
+    otklj.push('<div class="kockica"><span class="slicica">'+ART[id]+'</span>'+MASINE[id].naziv+'</div>');
+  for(const id in ZIV) if(ZIV[id].nivo===lvl)
+    otklj.push('<div class="kockica"><span class="slicica">'+ART[id]+'</span>'+ZIV[id].naziv+'</div>');
+  if(lvl===6) otklj.push('<div class="kockica"><span class="slicica">'+ART.katanac+'</span>Aukcija uskoro</div>');
+  uRed(
+    '<div class="zvezda">⭐</div><h3>Nivo '+lvl+'!</h3>'+
+    '<p>Nagrada: <b style="color:var(--zlato-t)">+'+fmt(bonus)+' din</b></p>'+
+    (otklj.length ? '<p style="margin-top:6px">Otključano:</p><div class="otkljucano">'+otklj.join('')+'</div>' : '')+
+    '<button class="dugme zlatno" id="nivoOk">Super!</button>',
+    ()=>{ crtajSve(); }
+  );
+  zvuk('nivo'); vibro([30,40,60]); konfete(); crtajNovac();
+}
+
+/* ================================================================
+   NARUDŽBINE
+================================================================ */
+let brojacN = 1;
+function narPool(){
+  const {lvl} = nivoIzXp(S.xp);
+  const pool = REDOSLED.filter(k=>KULTURE[k].nivo<=lvl && KULTURE[k].vreme<=1800);
+  if(S.masine.mlin.k) pool.push('brasno');
+  if(S.masine.kazan.k) pool.push('ajvar');
+  if(S.ziv.kokosinjac.k) pool.push('jaje');
+  if(S.ziv.stala.k) pool.push('mleko');
+  return pool;
+}
+function novaNarudzba(){
+  const {lvl} = nivoIzXp(S.xp);
+  const pool = narPool();
+  const brojVrsta = (Math.random()<0.55 || pool.length<2) ? 1 : 2;
+  const izbor = [...pool].sort(()=>Math.random()-.5).slice(0,brojVrsta);
+  const cilj = 55*Math.pow(lvl,1.25)*(0.75+Math.random()*.55);
+  const stavke = izbor.map(k=>({ k, kom: Math.max(1, Math.min(12, Math.round(cilj/izbor.length/SVE_CENE[k].cena))) }));
+  const vrednost = stavke.reduce((s,x)=>s+SVE_CENE[x.k].cena*x.kom,0);
+  const ko = MUSTERIJE[Math.floor(Math.random()*MUSTERIJE.length)];
+  return {
+    id: brojacN++, ime: ko.ime, emoji: ko.emoji, boja: ko.boja,
+    msg: ko.poruke[Math.floor(Math.random()*ko.poruke.length)],
+    stavke, din: Math.ceil(vrednost*1.3/5)*5, xp: Math.max(3, Math.ceil(vrednost/10))
+  };
+}
+function osigurajNarudzbe(){ while(S.narudzbe.length<2) S.narudzbe.push(novaNarudzba()); }
+
+/* ================================================================
+   CRTANJE
+================================================================ */
+function crtajNivo(){
+  const n = nivoIzXp(S.xp);
+  $('#nivoBr').textContent = n.lvl;
+  $('#xpTraka').style.width = Math.min(100, n.u/n.do*100)+'%';
+}
+function fazaBiljke(u){ return u<.35?1:(u<.8?2:3); }
+function zrelihUseva(){ return S.parcele.filter(p=>p.c && (sad()-p.t)/1000>=KULTURE[p.c].vreme).length; }
+function potpisNjiva(){
+  return S.parcele.map(p=>{
+    if(!p.c) return 'x';
+    const u = (sad()-p.t)/1000/KULTURE[p.c].vreme;
+    return u>=1 ? 'z' : 'f'+fazaBiljke(u);
+  }).join('');
+}
+
+function crtajNjive(){
+  const w = $('#njive'); w.innerHTML='';
+  S.parcele.forEach((p,i)=>{
+    const el = document.createElement('div');
+    el.className='parcela'; el.dataset.i=i;
+    if(!p.c){
+      el.classList.add('prazna');
+      el.innerHTML='<div class="plus">＋</div>';
+      if(!S.sadio && i===0) el.innerHTML+='<div class="hint">Tapni da posadiš 👇</div>';
+      el.onclick = ()=>{ zvuk('tap'); otvoriList(i); };
+    } else {
+      const K = KULTURE[p.c];
+      const proslo=(sad()-p.t)/1000, udeo=Math.min(1,proslo/K.vreme);
+      if(udeo>=1){
+        el.classList.add('zrelo');
+        el.innerHTML='<div class="uberi">Uberi!</div><div class="senkica"></div>'+
+          '<div class="biljka">'+ART[p.c+'3']+'</div>';
+        el.onclick = ()=>uberi(i, el);
+      } else {
+        const f = fazaBiljke(udeo);
+        el.innerHTML='<div class="senkica"></div>'+
+          '<div class="biljka">'+(f===1?KLICA:ART[p.c+(f===2?'2':'3')])+'</div>'+
+          (p.z?'':'<span class="zalij">'+ART.kap+'</span>')+
+          '<div class="info"><div class="cd">'+vremeTxt(K.vreme-proslo)+'</div>'+
+          '<div class="traka"><i style="width:'+(udeo*100)+'%"></i></div></div>';
+        if(f===3) el.querySelector('.biljka').style.transform='translateX(-50%) scale(.9)';
+        el.onclick = ()=>zalijBiljku(i, el);
+      }
+    }
+    w.appendChild(el);
+  });
+  if(S.parcele.length<MAX_PARCELA){
+    const cena = cenaParcele(S.parcele.length);
+    const el = document.createElement('div');
+    el.className='parcela zakljucana';
+    el.innerHTML='<div class="sadrzajz"><div class="katanac">🔒</div><div class="znak">'+fmt(cena)+' din</div></div>';
+    el.onclick = ()=>kupiParcelu(cena);
+    w.appendChild(el);
+  }
+  const zr = zrelihUseva();
+  $('#uberiSveKuca').innerHTML = zr>=2 ? '<button id="uberiSve">Uberi sve ('+zr+')</button>' : '';
+  const us = $('#uberiSve'); if(us) us.onclick = uberiSve;
+  potpisPre = potpisNjiva();
+  osveziTacke();
+}
+
+function crtajZgrade(){
+  const w = $('#zgradeKuca');
+  let html = '';
+  for(const id in MASINE){
+    const m = S.masine[id]; if(!m.k) continue;
+    const M = MASINE[id];
+    const kuva = m.t>0;
+    let unutra;
+    if(kuva){
+      const proslo=(sad()-m.t)/1000, udeo=Math.min(1,proslo/M.vreme);
+      unutra = '<div class="traka2"><i data-mbar="'+id+'" style="width:'+(udeo*100)+'%"></i></div>'+
+        '<p style="margin-top:5px" data-mcd="'+id+'">Gotovo za '+vremeTxt(M.vreme-proslo)+'</p>';
+    } else {
+      unutra = '<button class="dugme toplo" data-kuvaj="'+id+'" '+(S.mag[M.ulazK]<M.ulazN?'disabled':'')+'>'+M.akcija+'</button>';
+    }
+    html += '<div class="kartica" data-masina="'+id+'"><div class="red"><div class="slika">'+ART[id]+'</div>'+
+      '<div><h3>'+M.naziv+'</h3><p>Imaš '+S.mag[M.ulazK]+'× '+KULTURE[M.ulazK].naziv.toLowerCase()+
+      ' · '+PROIZVODI[M.izlaz].naziv.toLowerCase()+' ide po ~'+fmt(PROIZVODI[M.izlaz].cena)+' din (+' +M.xp+' XP)</p></div></div>'+unutra+'</div>';
+  }
+  for(const id in ZIV){
+    const z = S.ziv[id]; if(!z.k) continue;
+    const Z = ZIV[id];
+    const n = zivSpremno(id);
+    const frac = n>=Z.kap ? 1 : ((sad()-z.t)/1000 % Z.interval)/Z.interval;
+    html += '<div class="kartica" data-zgz="'+id+'"><div class="red"><div class="slika">'+ART[id]+'</div>'+
+      '<div><h3>'+Z.naziv+'</h3><p><span data-zn="'+id+'">'+n+'</span>/'+Z.kap+' × '+PROIZVODI[Z.proizvod].naziv.toLowerCase()+
+      ' spremno · novo na '+trajanjeTxt(Z.interval)+'</p></div></div>'+
+      '<div class="traka2 plava"><i data-zbar="'+id+'" style="width:'+(frac*100)+'%"></i></div>'+
+      '<button class="dugme" data-pokupi="'+id+'" '+(n>0?'':'disabled')+'>Pokupi</button></div>';
+  }
+  w.innerHTML = html;
+  w.querySelectorAll('[data-kuvaj]').forEach(b=>b.onclick=()=>pokreniMasinu(b.dataset.kuvaj, b));
+  w.querySelectorAll('[data-pokupi]').forEach(b=>b.onclick=()=>pokupi(b.dataset.pokupi, b));
+  $('#scenaKoka').innerHTML = S.ziv.kokosinjac.k ? ART.koka : '';
+  $('#scenaKoka').style.display = S.ziv.kokosinjac.k ? 'block' : 'none';
+  $('#scenaKrava').innerHTML = S.ziv.stala.k ? ART.krava : '';
+  $('#scenaKrava').style.display = S.ziv.stala.k ? 'block' : 'none';
+}
+
+function crtajNarudzbe(){
+  osigurajNarudzbe();
+  const w = $('#narudzbeKuca');
+  w.innerHTML = S.narudzbe.map(o=>{
+    const moze = o.stavke.every(s=>S.mag[s.k]>=s.kom);
+    const stavke = o.stavke.map(s=>{
+      const fali = S.mag[s.k]<s.kom;
+      return '<div class="stavka'+(fali?' fali':'')+'"><span class="slicica">'+ikonica(s.k)+'</span>'+S.mag[s.k]+'/'+s.kom+'</div>';
+    }).join('');
+    return '<div class="kartica" style="margin-top:10px">'+
+      '<div class="musterija"><div class="avatar" style="background:'+o.boja+'">'+o.emoji+'</div>'+
+      '<div><b>'+o.ime+'</b><span>„'+o.msg+'“</span></div></div>'+
+      '<div class="stavke">'+stavke+'</div>'+
+      '<div class="nagrada"><span>'+ART.novcic+' '+fmt(o.din)+' din</span><span class="xpp">✦ +'+o.xp+' XP</span></div>'+
+      '<button class="dugme zlatno" data-isporuci="'+o.id+'" '+(moze?'':'disabled')+'>Isporuči</button>'+
+      '<button class="odbij" data-odbij="'+o.id+'">Nemam to — daj drugu ↺</button></div>';
+  }).join('');
+  w.querySelectorAll('[data-isporuci]').forEach(b=>b.onclick=()=>isporuci(+b.dataset.isporuci, b));
+  w.querySelectorAll('[data-odbij]').forEach(b=>b.onclick=()=>{
+    zvuk('tap');
+    S.narudzbe = S.narudzbe.filter(x=>x.id!==+b.dataset.odbij);
+    osigurajNarudzbe(); crtajNarudzbe(); sacuvaj();
+  });
+  osveziTacke();
+}
+
+function crtajTezgu(){
+  const t = $('#tezga');
+  const stavke = SVI_KLJUCEVI.filter(k=>S.mag[k]>0);
+  if(!stavke.length){
+    t.innerHTML='<p style="font-weight:700;color:var(--mastilo-b);font-size:13px;padding:4px 2px">Tezga je prazna. Uberi nešto, pa se vrati da prodaš.</p>';
+  } else {
+    t.innerHTML = stavke.map(k=>{
+      const {cena,smer} = trzisnaCena(k);
+      const str = smer>0?'<span class="smer gore">▲ dobra cena</span>':smer<0?'<span class="smer dole">▼ slaba cena</span>':'<span class="smer" style="color:var(--mastilo-b)">— prosek</span>';
+      return '<div class="roba"><div class="slicica">'+ikonica(k)+'</div>'+
+        '<div class="info"><b>'+SVE_CENE[k].naziv+'</b><span>× '+S.mag[k]+' kom</span></div>'+
+        '<div class="cena"><b data-cena="'+k+'">'+fmt(cena)+' din</b>'+str+'</div>'+
+        '<button class="prodaj" data-prodaj="'+k+'">Prodaj sve</button></div>';
+    }).join('');
+    t.querySelectorAll('[data-prodaj]').forEach(b=>b.onclick=()=>prodaj(b.dataset.prodaj,b));
+  }
+  osveziTacke();
+}
+
+function crtajRadnju(){
+  const w = $('#radnjaKuca');
+  const {lvl} = nivoIzXp(S.xp);
+  let html = '';
+  const zgrada = (id, D, owned) => {
+    if(owned) return '<div class="kartica'+(html?'':'" style="margin-top:0')+'"><div class="red"><div class="slika">'+ART[id]+'</div>'+
+      '<div><h3>'+D.naziv+'</h3><p>Kupljeno ✓ — nalazi se na farmi.</p></div></div></div>';
+    if(lvl>=D.nivo) return '<div class="kartica'+(html?'':'" style="margin-top:0')+'"><div class="red"><div class="slika">'+ART[id]+'</div>'+
+      '<div><h3>'+D.naziv+'</h3><p>'+D.opis+'</p></div></div>'+
+      '<button class="dugme" data-kupi="'+id+'" '+(S.novac<D.cena?'disabled':'')+'>Kupi — '+fmt(D.cena)+' din</button></div>';
+    return '<div class="kartica siva'+(html?'':'" style="margin-top:0')+'"><div class="red"><div class="slika">'+ART[id]+'</div>'+
+      '<div><h3>'+D.naziv+' 🔒</h3><p>Otključava se na nivou '+D.nivo+'.</p></div></div></div>';
+  };
+  for(const id in MASINE) html += zgrada(id, MASINE[id], S.masine[id].k);
+  for(const id in ZIV) html += zgrada(id, ZIV[id], S.ziv[id].k);
+  html += '<div class="kartica siva"><div class="red"><div class="slika">'+ART.katanac+'</div>'+
+    '<div><h3>Aukcijska kuća 🔒</h3><p>Trgovina sa pravim igračima — stiže u multiplayer verziji.</p></div></div></div>';
+  w.innerHTML = html;
+  w.querySelectorAll('[data-kupi]').forEach(b=>b.onclick=()=>kupiZgradu(b.dataset.kupi, b));
+  $('#statKuca').innerHTML =
+    '<div class="statRed"><span>Ubrano i sakupljeno</span><b>'+fmt(S.stat.ubrano)+'</b></div>'+
+    '<div class="statRed"><span>Ukupno zarađeno</span><b>'+fmt(S.stat.zaradjeno)+' din</b></div>'+
+    '<div class="statRed"><span>Isporučenih narudžbina</span><b>'+fmt(S.stat.isporuke)+'</b></div>';
+  $('#zvukDugme').textContent = 'Zvuk: '+(S.mute?'isključen':'uključen');
+  osveziTacke();
+}
+
+function osveziTacke(){
+  const {lvl} = nivoIzXp(S.xp);
+  const farma = zrelihUseva()>0 || Object.keys(ZIV).some(id=>zivSpremno(id)>0);
+  const nar = S.narudzbe.some(o=>o.stavke.every(s=>S.mag[s.k]>=s.kom));
+  const pij = SVI_KLJUCEVI.some(k=>S.mag[k]>0) && !nar;
+  const rad = Object.keys(MASINE).some(id=>!S.masine[id].k && lvl>=MASINE[id].nivo && S.novac>=MASINE[id].cena) ||
+              Object.keys(ZIV).some(id=>!S.ziv[id].k && lvl>=ZIV[id].nivo && S.novac>=ZIV[id].cena);
+  $('#tackaFarma').classList.toggle('ima', farma);
+  $('#tackaNar').classList.toggle('ima', nar);
+  $('#tackaPij').classList.toggle('ima', pij);
+  $('#tackaRad').classList.toggle('ima', rad);
+}
+
+function crtajSve(){ crtajNovac(); crtajNivo(); crtajNjive(); crtajZgrade(); crtajNarudzbe(); crtajTezgu(); crtajRadnju(); }
+
+/* ================================================================
+   RADNJE
+================================================================ */
+function otvoriList(i){
+  izabrana = i;
+  const {lvl} = nivoIzXp(S.xp);
+  $('#semena').innerHTML = REDOSLED.map(k=>{
+    const K = KULTURE[k];
+    const zak = K.nivo>lvl;
+    return '<button class="seme'+(zak?' zakljucano':'')+'" data-seme="'+k+'" '+((zak||S.novac<K.seme)?'disabled':'')+'>'+
+      '<div class="slicica">'+ART[k+'3']+'</div>'+
+      '<div class="info"><b>'+K.naziv+'</b><span>'+(zak?'Otključava se na nivou '+K.nivo:'raste '+trajanjeTxt(K.vreme)+' · prodaja ~'+fmt(K.cena)+' din')+'</span></div>'+
+      '<div class="kosta">'+(zak?'🔒':fmt(K.seme)+' din<small>+'+K.xp+' XP</small>')+'</div></button>';
+  }).join('');
+  document.querySelectorAll('[data-seme]').forEach(b=>b.onclick=()=>posadi(b.dataset.seme));
+  $('#veo').classList.add('otvoren'); $('#list').classList.add('otvoren');
+}
+function zatvoriList(){ $('#veo').classList.remove('otvoren'); $('#list').classList.remove('otvoren'); }
+$('#veo').onclick = zatvoriList;
+
+function posadi(k){
+  const K = KULTURE[k];
+  if(S.novac<K.seme || izabrana<0) return;
+  const prvi = !S.sadio;
+  S.novac -= K.seme;
+  S.parcele[izabrana] = {c:k, t:sad(), z:false};
+  S.sadio = true;
+  zvuk('sadnja'); vibro(12);
+  zatvoriList(); crtajNovac(); crtajNjive(); sacuvaj();
+  if(prvi) setTimeout(()=>toast('Savet: tapni biljku dok raste da je zaliješ 💧'), 700);
+}
+function zalijBiljku(i, el){
+  const p = S.parcele[i]; if(!p.c) return;
+  if(p.z){ zvuk('tap'); toast('Već je zaliveno 💧'); return; }
+  const K = KULTURE[p.c];
+  const preostalo = K.vreme*1000 - (sad()-p.t);
+  if(preostalo<=0) return;
+  p.z = true;
+  p.t -= Math.round(preostalo*0.25);
+  zvuk('voda'); vibro(10); kapFx(el);
+  const z = el.querySelector('.zalij'); if(z) z.remove();
+  toast('Zaliveno — raste 25% brže 💧');
+  sacuvaj();
+}
+function uberiJedan(i){
+  const k = S.parcele[i].c, K = KULTURE[k];
+  S.mag[k]++; S.stat.ubrano++;
+  S.parcele[i] = {c:null,t:0,z:false};
+  return K.xp;
+}
+function uberi(i, el){
+  const xp = uberiJedan(i);
+  zvuk('zetva'); vibro(18);
+  dodajXp(xp, el);
+  setTimeout(()=>{ crtajNjive(); crtajTezgu(); crtajZgrade(); crtajNarudzbe(); }, 180);
+  sacuvaj();
+}
+function uberiSve(){
+  let xp = 0, br = 0;
+  S.parcele.forEach((p,i)=>{
+    if(p.c && (sad()-p.t)/1000>=KULTURE[p.c].vreme){ xp += uberiJedan(i); br++; }
+  });
+  if(!br) return;
+  zvuk('zetva'); vibro([15,25,15]);
+  dodajXp(xp, $('#uberiSveKuca'));
+  toast('Ubrano '+br+' useva 🌾');
+  crtajNjive(); crtajTezgu(); crtajZgrade(); crtajNarudzbe(); sacuvaj();
+}
+function prodaj(k, dugme){
+  const kom = S.mag[k]; if(!kom) return;
+  const {cena} = trzisnaCena(k);
+  const zarada = cena*kom;
+  S.mag[k]=0; S.novac+=zarada; S.stat.zaradjeno+=zarada;
+  letiNovcic(dugme, Math.min(kom,6));
+  toast('Prodato '+kom+' × '+SVE_CENE[k].naziv+' za '+fmt(zarada)+' din');
+  crtajNovac(); crtajTezgu(); crtajNarudzbe(); crtajZgrade(); sacuvaj();
+}
+function isporuci(id, dugme){
+  const o = S.narudzbe.find(x=>x.id===id); if(!o) return;
+  if(!o.stavke.every(s=>S.mag[s.k]>=s.kom)){ zvuk('greska'); return; }
+  o.stavke.forEach(s=>S.mag[s.k]-=s.kom);
+  S.novac += o.din; S.stat.zaradjeno += o.din; S.stat.isporuke++;
+  letiNovcic(dugme, 6); vibro([15,30,15]);
+  dodajXp(o.xp, dugme);
+  toast(o.ime+' ti zahvaljuje! +'+fmt(o.din)+' din');
+  S.narudzbe = S.narudzbe.filter(x=>x.id!==id);
+  osigurajNarudzbe();
+  crtajNovac(); crtajNarudzbe(); crtajTezgu(); crtajZgrade(); sacuvaj();
+}
+function pametnaKupovina(cena){
+  if(S.novac<cena){ zvuk('greska'); toast('Nemaš dovoljno dinara'); return false; }
+  if(S.novac-cena<KULTURE.psenica.seme && !nestoRaste() && magPrazan()){
+    zvuk('greska'); toast('Ostavi bar za seme pšenice 🙂'); return false;
+  }
+  return true;
+}
+function kupiParcelu(cena){
+  if(!pametnaKupovina(cena)) return;
+  S.novac -= cena; S.parcele.push({c:null,t:0,z:false});
+  zvuk('zetva'); vibro(20);
+  toast('Nova parcela je tvoja 🎉');
+  crtajNovac(); crtajNjive(); sacuvaj();
+}
+function kupiZgradu(id){
+  const D = MASINE[id] || ZIV[id];
+  if(!pametnaKupovina(D.cena)) return;
+  S.novac -= D.cena;
+  if(MASINE[id]) S.masine[id].k = true;
+  else { S.ziv[id].k = true; S.ziv[id].t = sad(); }
+  zvuk('zetva'); vibro(20);
+  toast(D.naziv+' je na farmi! 🎉');
+  crtajSve(); sacuvaj();
+}
+function pokreniMasinu(id, dugme){
+  const M = MASINE[id], m = S.masine[id];
+  if(m.t>0 || S.mag[M.ulazK]<M.ulazN) return;
+  S.mag[M.ulazK] -= M.ulazN; m.t = sad();
+  zvuk('sadnja');
+  crtajZgrade(); crtajTezgu(); crtajNarudzbe(); sacuvaj();
+}
+function pokupi(id, dugme){
+  const n = zivSpremno(id); if(!n) return;
+  const Z = ZIV[id], z = S.ziv[id];
+  S.mag[Z.proizvod] += n; S.stat.ubrano += n;
+  z.t += n*Z.interval*1000; if(z.t>sad()) z.t = sad();
+  zvuk('zetva'); vibro(14);
+  dodajXp(n*Z.xpPo, dugme);
+  toast('+'+n+' × '+PROIZVODI[Z.proizvod].naziv.toLowerCase()+' u korpi');
+  crtajZgrade(); crtajTezgu(); crtajNarudzbe(); sacuvaj();
+}
+
+/* ================================================================
+   OTKUCAJ (1s)
+================================================================ */
+let potpisPre = '';
+setInterval(()=>{
+  S.parcele.forEach((p,i)=>{
+    if(!p.c) return;
+    const K = KULTURE[p.c];
+    const proslo = (sad()-p.t)/1000, udeo = proslo/K.vreme;
+    if(udeo>=1) return;
+    const el = document.querySelector('.parcela[data-i="'+i+'"]');
+    if(el){
+      const tr = el.querySelector('.traka i'), cd = el.querySelector('.cd');
+      if(tr) tr.style.width = Math.min(100,udeo*100)+'%';
+      if(cd) cd.textContent = vremeTxt(K.vreme-proslo);
+    }
+  });
+  if(potpisNjiva() !== potpisPre) crtajNjive();
+
+  let strukturno = false;
+  for(const id in MASINE){
+    const m = S.masine[id]; if(!m.k || !m.t) continue;
+    const M = MASINE[id];
+    const proslo = (sad()-m.t)/1000;
+    if(proslo>=M.vreme){
+      m.t = 0; S.mag[M.izlaz]++;
+      zvuk('zetva'); toast(M.gotovo);
+      dodajXp(M.xp, document.querySelector('[data-masina="'+id+'"]'));
+      strukturno = true; sacuvaj();
+    } else {
+      const cd = document.querySelector('[data-mcd="'+id+'"]');
+      const tr = document.querySelector('[data-mbar="'+id+'"]');
+      if(cd) cd.textContent = 'Gotovo za '+vremeTxt(M.vreme-proslo);
+      if(tr) tr.style.width = Math.min(100,proslo/M.vreme*100)+'%';
+    }
+  }
+  for(const id in ZIV){
+    const z = S.ziv[id]; if(!z.k) continue;
+    const Z = ZIV[id], n = zivSpremno(id);
+    const nEl = document.querySelector('[data-zn="'+id+'"]');
+    const bEl = document.querySelector('[data-zbar="'+id+'"]');
+    const pEl = document.querySelector('[data-pokupi="'+id+'"]');
+    if(nEl) nEl.textContent = n;
+    if(bEl) bEl.style.width = (n>=Z.kap?100:(((sad()-z.t)/1000 % Z.interval)/Z.interval*100))+'%';
+    if(pEl) pEl.disabled = n===0;
+  }
+  if(strukturno){ crtajZgrade(); crtajTezgu(); crtajNarudzbe(); }
+
+  document.querySelectorAll('[data-cena]').forEach(el=>{
+    el.textContent = fmt(trzisnaCena(el.dataset.cena).cena)+' din';
+  });
+  osveziTacke();
+}, 1000);
+
+/* ================================================================
+   NAVIGACIJA + START
+================================================================ */
+document.querySelectorAll('nav [data-tab]').forEach(b=>{
+  b.onclick = ()=>{
+    zvuk('tap');
+    document.querySelectorAll('nav [data-tab]').forEach(x=>x.classList.remove('aktivan'));
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('aktivan'));
+    b.classList.add('aktivan');
+    $('#tab-'+b.dataset.tab).classList.add('aktivan');
+    if(b.dataset.tab==='narudzbe') crtajNarudzbe();
+    if(b.dataset.tab==='pijaca') crtajTezgu();
+    if(b.dataset.tab==='radnja') crtajRadnju();
+  };
+});
+$('#resetDugme').onclick = ()=>{
+  if(!confirm('Sigurno? Sav napredak se briše.')) return;
+  S = POCETNO(); prosliNivo = 1; brojacN = 1;
+  osigurajNarudzbe();
+  sacuvaj(true); crtajSve(); toast('Nova igra. Srećno! 🌱');
+};
+$('#zvukDugme').onclick = ()=>{
+  S.mute = !S.mute; crtajRadnju(); sacuvaj();
+  if(!S.mute) zvuk('tap');
+};
+
+(async ()=>{
+  $('#leptir1').innerHTML = ART.leptir;
+  $('#leptir2').innerHTML = ART.leptir;
+  const pre = Date.now();
+  await ucitaj();
+  prosliNivo = nivoIzXp(S.xp).lvl;
+  brojacN = S.narudzbe.reduce((m,o)=>Math.max(m, o.id||0), 0) + 1;
+  osigurajNarudzbe();
+
+  const videnoPre = S.videno || pre;
+  const odsutan = (pre - videnoPre)/1000;
+  let sazrelo = 0, mGotovo = 0;
+  const skupilo = {};
+  S.parcele.forEach(p=>{
+    if(p.c){ const g = p.t + KULTURE[p.c].vreme*1000;
+      if(g > videnoPre && g <= pre) sazrelo++; }
+  });
+  for(const id in MASINE){
+    const m = S.masine[id];
+    if(m.k && m.t>0 && m.t + MASINE[id].vreme*1000 <= pre) mGotovo++;
+  }
+  for(const id in ZIV){
+    if(!S.ziv[id].k) continue;
+    const d = zivSpremno(id, pre) - zivSpremno(id, videnoPre);
+    if(d>0) skupilo[ZIV[id].proizvod] = d;
+  }
+  crtajSve();
+
+  if(odsutan>180 && (sazrelo || mGotovo || Object.keys(skupilo).length)){
+    let linije = '';
+    if(sazrelo) linije += '<div><span class="slicica">'+ART.psenica3+'</span>Sazrelo useva: '+sazrelo+'</div>';
+    if(mGotovo) linije += '<div><span class="slicica">'+ART.kazan+'</span>Mašine su završile posao</div>';
+    for(const p in skupilo) linije += '<div><span class="slicica">'+ART[p]+'</span>'+PROIZVODI[p].naziv+': +'+skupilo[p]+'</div>';
+    uRed('<div class="zvezda">🌅</div><h3>Dobro došao nazad!</h3><p>Dok te nije bilo:</p>'+
+      '<div class="spisak">'+linije+'</div>'+
+      '<button class="dugme zlatno" id="nivoOk">Idemo!</button>', null);
+  } else if(!S.sadio){
+    toast('Dobro došao na farmu! 👩‍🌾');
+  }
+
+  const danas = new Date().toLocaleDateString('sv');
+  if(S.sadio && S.poklonDan !== danas){
+    S.poklonDan = danas;
+    const {lvl} = nivoIzXp(S.xp);
+    const dar = 40 + lvl*35;
+    S.novac += dar;
+    uRed('<span class="slicica" style="width:56px;display:inline-block">'+ART.poklon+'</span>'+
+      '<h3>Dnevni poklon</h3><p>Dobio si <b style="color:var(--zlato-t)">+'+fmt(dar)+' din</b> za vernost farmi. Vidimo se sutra!</p>'+
+      '<button class="dugme zlatno" id="nivoOk">Hvala!</button>',
+      ()=>{ crtajNovac(); zvuk('novac'); });
+    sacuvaj(true);
+  } else {
+    sacuvaj();
+  }
+})();
+</script>
+</body>
+</html>
