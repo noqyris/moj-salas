@@ -9,6 +9,14 @@
  *   PRE bilo kakvog upisa (prototip je u svim ovim slučajevima pregazio sejv novom igrom).
  * - D13: debounce SEJV_ODLAGANJE_MS, ali tokom neprekidnog niza zahteva upis najkasnije
  *   SEJV_MAX_CEKANJE_MS posle prethodnog (prototip u neprekidnoj igri nije pisao nikad, 06 bug 18).
+ *
+ * Zaštite koje ugovor ne pominje izričito:
+ * - upis zahteva i završeno `ucitaj()`, ne samo `spreman()` — i pogrešan redosled poziva u UI-ju
+ *   ne sme da pregazi sejv koji još nije pročitan (D9);
+ * - sat vraćen unazad usred niza ⇒ upis odmah: rokovi su na satu zidnog vremena, pa bi max-wait
+ *   inače čekao da sat sustigne staro sidro (sat unazad 1 h = 1 h neprekidne igre bez upisa);
+ * - zahtev koji stigne kad je odloženi upis već zakasnio (tajmer nije okinuo) ⇒ upis odmah.
+ * (Isto kao lodash `debounce` sa `maxWait`: vreme unazad i zakasneo rok znače „piši sad".)
  */
 import { KLJUC_REZERVE, KLJUC_SEJVA, SEJV_MAX_CEKANJE_MS, SEJV_ODLAGANJE_MS } from '../../config'
 import type { Stanje } from '../types'
@@ -52,6 +60,8 @@ export class SaveController {
   private readonly rasporedjivac: Rasporedjivac
   private readonly stanje: () => Stanje
   private jeSpreman = false
+  /** `ucitaj()` je završeno (u bilo kom ishodu). Pre toga se ne piše ni uz `spreman()`. */
+  private ucitano = false
   private samoCitanje = false
   private tajmer: number | null = null
   /** Od kog trenutka se meri max-wait: početak niza zahteva, ili poslednji upis dok niz traje. */
@@ -70,6 +80,12 @@ export class SaveController {
    * Posle ovoga i dalje se ništa ne piše dok UI ne pozove `spreman()`.
    */
   async ucitaj(): Promise<RezultatUcitavanja> {
+    const r = await this.procitaj()
+    this.ucitano = true
+    return r
+  }
+
+  private async procitaj(): Promise<RezultatUcitavanja> {
     const pre = this.sat()
     if (!this.skladiste) return { dekodirano: dekodirajSejv(null, pre), greskaSkladista: false }
     let raw: string | null
@@ -96,7 +112,8 @@ export class SaveController {
     return { dekodirano, greskaSkladista: false }
   }
 
-  /** Učitavanje (i sve što boot radi pre prvog čuvanja) je gotovo: od sada `sacuvaj` piše. */
+  /** Učitavanje (i sve što boot radi pre prvog čuvanja) je gotovo: od sada `sacuvaj` piše.
+   *  Pozvano pre nego što se `ucitaj()` završi, deluje tek kad se učitavanje završi. */
   spreman(): void {
     this.jeSpreman = true
   }
@@ -110,12 +127,18 @@ export class SaveController {
     const t = this.sat()
     this.stanje().videno = t
     const skladiste = this.skladiste
-    if (!skladiste || !this.jeSpreman || this.samoCitanje) return
-    // Niz zahteva traje dok između dva zahteva ne prođe ceo debounce (tada je upis već pao).
-    const nastavakNiza =
-      this.poslednjiZahtev !== null && t - this.poslednjiZahtev < SEJV_ODLAGANJE_MS
+    if (!skladiste || !this.ucitano || !this.jeSpreman || this.samoCitanje) return
+    const prethodni = this.poslednjiZahtev
     this.poslednjiZahtev = t
-    if (odmah) {
+    // Niz zahteva traje dok između dva zahteva ne prođe ceo debounce (tada je upis već pao).
+    const nastavakNiza = prethodni !== null && t - prethodni < SEJV_ODLAGANJE_MS
+    // Sat je vraćen unazad (iza poslednjeg zahteva ili upisa): rokovi računati na starom satu više
+    // ne važe — upiši odmah, a novi niz kreće od sada.
+    const unazad = t < this.sidro || (prethodni !== null && t < prethodni)
+    // Odloženi upis je već morao da padne, a tajmer još nije okinuo (uspavan uređaj, prigušen
+    // pozadinski tab, sat pomeren napred): ne odlaži ga još jednom.
+    const zakasneo = this.tajmer !== null && !nastavakNiza
+    if (odmah || unazad || zakasneo) {
       this.upisi(skladiste)
       return
     }
@@ -126,10 +149,15 @@ export class SaveController {
       this.upisi(skladiste)
       return
     }
-    this.tajmer = this.rasporedjivac.setTimeout(() => {
+    let okinuo = false
+    const id = this.rasporedjivac.setTimeout(() => {
+      okinuo = true
       this.tajmer = null
       this.upisi(skladiste)
     }, rok - t)
+    // Sinhroni raspoređivač (referenca-sim režim testova: `cb(); return 0`) je već upisao — ne
+    // pamti id tajmera koji više ne postoji.
+    if (!okinuo) this.tajmer = id
   }
 
   /** true ⇒ ova sesija ne piše ništa (greška skladišta ili sejv iz budućnosti). */
