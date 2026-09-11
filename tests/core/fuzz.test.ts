@@ -8,9 +8,8 @@
  * Režim „unazad" (D4 je ispravljen): 2 % koraka vraća sat do 10 min; vremenske invarijante `t ≤ now`
  * se tada ne proveravaju, a sve ostale (magacin ≥ 0, XP ne opada, n ∈ [0, kap]…) moraju da važe.
  *
- * NAPOMENA (integracija): `sacuvajIUcitaj` ide kroz JSON + igraIzStanja jer dekoder sejva piše grana
- * core-sejv paralelno. Kad `src/core/sejv` postoji, zameniti sa kodirajSejv / dekodirajSejv(raw, now)
- * i proveravati I13 kao `dekodirajSejv(kodirajSejv(s), now).stanje` ≡ s.
+ * I13: `sacuvajIUcitaj`/`noviDan` idu kroz pravi sejv — `dekodirajSejv(kodirajSejv(s), now)` mora da
+ * vrati `ok`, BEZ popravki (inače bi svaki start pisao rezervu, D10), sa stanjem ≡ s i istom sesijom.
  */
 import { describe, expect, it } from 'vitest'
 import {
@@ -45,7 +44,8 @@ import {
   zrelihUseva,
 } from '../../src/core/polja'
 import { kupiZgradu } from '../../src/core/radnja'
-import type { Rng, Stanje } from '../../src/core/types'
+import { dekodirajSejv, kodirajSejv } from '../../src/core/sejv/dekoder'
+import type { Rng } from '../../src/core/types'
 import { nivoIzXp } from '../../src/core/xp'
 import { pogledZivotinje, pokupi } from '../../src/core/zivotinje'
 import { MAG0, T0, danKljuc, mulberry32, stanje } from '../helpers'
@@ -77,9 +77,14 @@ function zabelezi(k: string, ok: boolean) {
   pokriveno.set(k, x)
 }
 
-/** Boot-put: sirovi sejv → sesija → dopuna narudžbina → dnevni poklon → čuvanje (videno = now). */
+/** Boot-put: sirovi sejv → dekoder → sesija → dopuna narudžbina → dnevni poklon → čuvanje
+ *  (videno = now). */
 function ucitaj(raw: string, now: number, rng: Rng): Igra {
-  const g = igraIzStanja(JSON.parse(raw) as Stanje)
+  const d = dekodirajSejv(raw, now)
+  if (d.vrsta !== 'ok' || d.popravke.length > 0) {
+    throw new Error(`I13: sejv nije čist: ${JSON.stringify(d.vrsta === 'ok' ? d.popravke : d)}`)
+  }
+  const g = igraIzStanja(d.stanje)
   osigurajNarudzbe(g, rng)
   const videnoPre = g.s.videno || now
   const pre = structuredClone(g.s)
@@ -184,10 +189,14 @@ function pokreni(seed: number, koraci: number, rezim: Rezim, pocetak: string | n
         case 'sacuvajIUcitaj':
         case 'noviDan': {
           if (a.k === 'noviDan') now += DAN_MS
-          const raw = JSON.stringify(g.s)
-          // I13: sejv je čist JSON (bez NaN/undefined/Infinity) i vraća isto stanje i istu sesiju
-          const krug = igraIzStanja(JSON.parse(raw) as Stanje)
+          const raw = kodirajSejv(g.s)
+          // I13: sejv je čist JSON (bez NaN/undefined/Infinity), dekoder ga vraća kao `ok` bez
+          // popravki, sa istim stanjem (i redosledom ključeva) i istom sesijom
+          const d = dekodirajSejv(raw, now)
+          uslov(korak, d.vrsta === 'ok' && d.popravke.length === 0, 'I13', JSON.stringify(d))
+          const krug = igraIzStanja(d.stanje)
           expect(krug.s).toEqual(g.s)
+          uslov(korak, kodirajSejv(krug.s) === raw, 'I13', 'kodirajSejv(dekodirano) ≠ raw')
           uslov(korak, krug.brojacN === g.brojacN, 'I13', `brojacN ${krug.brojacN} ≠ ${g.brojacN}`)
           uslov(korak, krug.prosliNivo === g.prosliNivo, 'I13', 'prosliNivo posle učitavanja')
           g = ucitaj(raw, now, rng)

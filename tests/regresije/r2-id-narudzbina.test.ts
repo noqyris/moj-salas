@@ -8,6 +8,7 @@
 import { describe, expect, it } from 'vitest'
 import { igraIzStanja, novaIgra } from '../../src/core/igra'
 import { isporuci, odbij } from '../../src/core/narudzbine'
+import { dekodirajSejv } from '../../src/core/sejv/dekoder'
 import type { Narudzba } from '../../src/core/types'
 import { MAG0, T0, mulberry32, narudzba, stanje } from '../helpers'
 import { ucitajIgru } from '../core/pomocnici'
@@ -22,8 +23,22 @@ describe('R2: ID narudžbina posle učitavanja', () => {
     [[9, 2], 10],
     [[41, 17], 42],
   ])('sačuvani ID-jevi %j → brojacN %i (pre dopune narudžbina)', (ids, sledeci) => {
-    const s = JSON.parse(sirovo(ids.map((id) => narudzba(id, 'psenica', 1, 25, 3))))
-    expect(igraIzStanja(s).brojacN).toBe(sledeci)
+    const d = dekodirajSejv(sirovo(ids.map((id) => narudzba(id, 'psenica', 1, 25, 3))), T0)
+    expect(igraIzStanja(d.stanje).brojacN).toBe(sledeci)
+  })
+
+  it("kroz dekoder: string id '9' i dupli id se ispravljaju PRE računanja brojacN (01 M13/M14)", () => {
+    const raw = JSON.stringify({
+      ...stanje(),
+      narudzbe: [
+        { ...narudzba(4, 'psenica', 1, 25, 3), id: '9' },
+        narudzba(4, 'sargarepa', 1, 80, 6),
+        narudzba(4, 'jaje', 1, 50, 4),
+      ],
+    })
+    const g = igraIzStanja(dekodirajSejv(raw, T0).stanje)
+    expect(g.s.narudzbe.map((o) => o.id)).toEqual([9, 4])
+    expect(g.brojacN).toBe(10)
   })
 
   it('jedna sačuvana narudžbina (id 3) → dopunjena dobija id 4', () => {

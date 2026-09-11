@@ -15,6 +15,7 @@ import { describe, expect, it } from 'vitest'
 import { igraIzStanja } from '../../src/core/igra'
 import { tikMasina } from '../../src/core/masine'
 import { prikaziDobrodoslicu, rezimeOdsustva } from '../../src/core/odsustvo'
+import { dekodirajSejv } from '../../src/core/sejv/dekoder'
 import { pogledZivotinje, pokupi, zivSpremno } from '../../src/core/zivotinje'
 import { T0, stanje } from '../helpers'
 import { igra, odbijeno } from '../core/pomocnici'
@@ -78,6 +79,27 @@ describe('R7: odsustvo', () => {
     const r = rezimeOdsustva(s, s.videno, T0)
     expect(r.sazrelo).toBe(1)
     expect(prikaziDobrodoslicu(r)).toBe(prikazi)
+  })
+})
+
+describe('R7 / 01 O5: sejv bez upotrebljivog videno ne daje lažnu dobrodošlicu (kroz dekoder)', () => {
+  it.each([
+    ['nedostaje', undefined],
+    ['null', null],
+    ['0', 0],
+    ['string', 'juče'],
+  ])('videno %s → videno = pre, odsutan 0 s, bez kartice (iako je sve zrelo)', (_o, videno) => {
+    const o: Record<string, unknown> = { ...S7() }
+    if (videno === undefined) delete o.videno
+    else o.videno = videno
+    const s = dekodirajSejv(JSON.stringify(o), T0).stanje
+    expect(s.videno).toBe(T0)
+    const r = rezimeOdsustva(s, s.videno || T0, T0)
+    expect(r.odsutanS).toBe(0)
+    expect(prikaziDobrodoslicu(r)).toBe(false)
+    // kontrola: isti sejv sa pravim videno JESTE za dobrodošlicu
+    const pravi = dekodirajSejv(JSON.stringify(S7()), T0).stanje
+    expect(prikaziDobrodoslicu(rezimeOdsustva(pravi, pravi.videno || T0, T0))).toBe(true)
   })
 })
 

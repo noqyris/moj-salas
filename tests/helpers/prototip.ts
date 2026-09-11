@@ -6,10 +6,13 @@
  * preko `ev('izraz')` (indirektni eval u globalnom opsegu jsdom-a). Funkcije jesu na `window`.
  */
 import { readFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { JSDOM, VirtualConsole, type DOMWindow } from 'jsdom'
 
-const PUTANJA = fileURLToPath(new URL('../../moja-farma-v3.html', import.meta.url))
+// Putanja od putanje OVOG fajla, ne `new URL('…', import.meta.url)`: taj izraz Vite u jsdom
+// okruženju prepisuje u URL resursa, pa helper ne bi radio u `*.ui.test.ts` fajlovima.
+const PUTANJA = resolve(dirname(fileURLToPath(import.meta.url)), '../../moja-farma-v3.html')
 export const PROTOTIP_HTML = readFileSync(PUTANJA, 'utf8')
 
 /** Zamena u izvornom kodu prototipa; `ocekivano` je tačan broj pojavljivanja (štiti od tihog promašaja). */
@@ -76,7 +79,8 @@ export interface Prototip {
   tik(n?: number): void
   /** Pomera virtuelni sat (ne pokreće tick). */
   skok(ms: number): void
-  /** U režimu 'red' izvršava tajmere dospele u narednih ms virtuelnog vremena tajmera. */
+  /** U režimu 'red' izvršava tajmere dospele u narednih ms virtuelnog vremena tajmera, redom
+   *  (rok, pa redosled zakazivanja); tokom svakog tajmera sat tajmera stoji na njegovom roku. */
   tajmeri(ms: number): void
   zatvoriOverlaye(): number
   /** Duboka kopija prototipovog stanja S. */
@@ -203,18 +207,22 @@ export async function ucitajPrototip(o: OpcijePrototipa): Promise<Prototip> {
       w.__pomak += ms
     },
     tajmeri(ms) {
-      vt += ms
+      const cilj = vt + ms
       for (;;) {
-        const dospeli = red.filter((x) => x.at <= vt).sort((a, b) => a.at - b.at || a.id - b.id)
+        const dospeli = red.filter((x) => x.at <= cilj).sort((a, b) => a.at - b.at || a.id - b.id)
         const x = dospeli[0]
         if (!x) break
         red = red.filter((y) => y !== x)
+        // Sat tajmera je na trenutku okidanja, pa tajmer zakazan IZ tajmera (savet posle 700 ms →
+        // sakrivanje toasta posle još 2300) računa od tog trenutka, kao u browseru.
+        vt = Math.max(vt, x.at)
         try {
           x.cb()
         } catch (e) {
           greske.push('tajmer: ' + String((e as Error)?.stack ?? e))
         }
       }
+      vt = cilj
     },
     zatvoriOverlaye() {
       let n = 0

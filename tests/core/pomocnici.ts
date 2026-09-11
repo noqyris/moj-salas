@@ -5,8 +5,9 @@ import { expect } from 'vitest'
 import type { Dogadjaj, Igra, Rezultat } from '../../src/core/dogadjaji'
 import { igraIzStanja } from '../../src/core/igra'
 import { osigurajNarudzbe } from '../../src/core/narudzbine'
+import { dekodirajSejv } from '../../src/core/sejv/dekoder'
 import type { Rng, Stanje } from '../../src/core/types'
-import { stanje } from '../helpers'
+import { T0, stanje } from '../helpers'
 
 /** Igra nad test-stanjem (helpers `stanje(o)`), bez dopune narudžbina. */
 export function igra(o: Partial<Stanje> = {}): Igra {
@@ -22,12 +23,16 @@ export function pecat(g: Igra, now: number, r: Rezultat): Rezultat {
 }
 
 /**
- * Učitavanje kao pri boot-u: sirovi sejv → sesija → dopuna narudžbina.
- * NAPOMENA (integracija): dekoder sejva piše grana core-sejv paralelno, pa ovde ide samo JSON
- * krug. Kad `src/core/sejv` postoji, zameniti sa `dekodirajSejv(raw, now).stanje` / `kodirajSejv`.
+ * Učitavanje kao pri boot-u (07 §0.3 `loadGame`): sirovi sejv → PRAVI dekoder → sesija → dopuna
+ * narudžbina. Test-sejvovi su ispravni, pa dekoder mora da vrati `ok` bez ijedne popravke —
+ * inače je fikstura pogrešna i test bi tiho proveravao ispravljeno umesto zadatog stanja.
  */
-export function ucitajIgru(raw: string, rng: Rng): Igra {
-  const g = igraIzStanja(JSON.parse(raw) as Stanje)
+export function ucitajIgru(raw: string, rng: Rng, now: number = T0): Igra {
+  const d = dekodirajSejv(raw, now)
+  if (d.vrsta !== 'ok' || d.popravke.length > 0) {
+    throw new Error(`test-sejv nije čist: ${JSON.stringify(d.vrsta === 'ok' ? d.popravke : d)}`)
+  }
+  const g = igraIzStanja(d.stanje)
   osigurajNarudzbe(g, rng)
   return g
 }
